@@ -16,7 +16,7 @@ const Gallery = () => {
 
   const images = [
     {
-      src: '/lovable-uploads/d0c76cb0-8e18-4817-b524-0762900572d9.png',
+      src: '/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png',
       alt: 'Indo Foundation School Building',
       category: 'campus',
     },
