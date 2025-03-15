@@ -21,7 +21,7 @@ const Gallery = () => {
       category: 'campus',
     },
     {
-      src: 'https://images.unsplash.com/photo-1590579491624-f98f36d4c198?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNjaG9vbCUyMGJ1aWxkaW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+      src: '/lovable-uploads/f8d9d0d5-c3c1-4fe9-83f8-f4a655ace3c7.png',
       alt: 'School Building Entrance',
       category: 'campus',
     },
