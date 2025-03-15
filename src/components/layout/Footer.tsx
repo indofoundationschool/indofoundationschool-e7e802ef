@@ -1,4 +1,3 @@
-
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -20,7 +19,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png" 
                 alt="Indo Foundation School Logo" 
-                className="h-14 w-auto"
+                className="h-14 w-auto mix-blend-multiply"
               />
               <div>
                 <h3 className="font-bold text-school-blue text-lg">Indo Foundation School</h3>
