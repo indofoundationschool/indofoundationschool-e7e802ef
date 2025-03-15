@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -33,15 +32,36 @@ const Enquire = () => {
     setFormData(prev => ({ ...prev, grade: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      // Create mailto URL with form data in the body
+      const subject = encodeURIComponent(`New Enquiry from ${formData.name}`);
+      
+      // Format the body of the email
+      let body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Child's Name: ${formData.childName || 'Not provided'}\n` +
+        `Grade of Interest: ${formData.grade || 'Not specified'}\n` +
+        `Message: ${formData.message || 'No message provided'}\n\n` +
+        `This enquiry was submitted through the school website.`
+      );
+      
+      // Create mailto link
+      const mailtoLink = `mailto:indofoundationschool@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open email client
+      window.location.href = mailtoLink;
+      
+      // Show success message
       setSubmitted(true);
-      toast.success('Enquiry submitted successfully! Our team will contact you soon.');
+      toast.success('Enquiry prepared for submission! Your email client has been opened.');
+      
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -55,7 +75,12 @@ const Enquire = () => {
       setTimeout(() => {
         setSubmitted(false);
       }, 3000);
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('There was an error submitting your enquiry. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -192,7 +217,7 @@ const Enquire = () => {
                   </div>
                   <h3 className="text-xl font-medium text-gray-900 mb-2">Thank You!</h3>
                   <p className="text-gray-600 max-w-md mx-auto">
-                    Your enquiry has been submitted successfully. Our team will contact you soon.
+                    Your enquiry has been prepared for submission. Please send the email that opened in your email client.
                   </p>
                 </motion.div>
               ) : (
