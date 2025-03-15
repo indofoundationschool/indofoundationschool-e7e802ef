@@ -157,9 +157,9 @@ const Index = () => {
               <div className="relative w-full max-w-md">
                 <div className="absolute -z-10 inset-0 bg-school-blue/20 rounded-full blur-3xl transform scale-75 translate-x-10 translate-y-10"></div>
                 <img 
-                  src="/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png" 
-                  alt="Indo Foundation School" 
-                  className="w-full h-auto object-contain relative z-10 animate-float"
+                  src="/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png" 
+                  alt="Indo Foundation School Building" 
+                  className="w-full h-auto object-contain rounded-xl shadow-xl relative z-10 animate-float"
                 />
               </div>
             </motion.div>
