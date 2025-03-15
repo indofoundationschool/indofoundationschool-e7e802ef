@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -105,7 +106,7 @@ const Enquire = () => {
     {
       icon: MapPin,
       title: 'Address',
-      details: 'Rohtak, Haryana, India',
+      details: 'Plot No 42/8, Shivaji Colony Rohtak, Haryana 124001',
       link: 'https://maps.google.com',
     },
   ];

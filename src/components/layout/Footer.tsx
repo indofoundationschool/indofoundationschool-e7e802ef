@@ -1,3 +1,4 @@
+
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -83,7 +84,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="text-school-blue mt-0.5" />
-                <span className="text-gray-600">Rohtak, Haryana, India</span>
+                <span className="text-gray-600">Plot No 42/8, Shivaji Colony Rohtak, Haryana 124001</span>
               </li>
             </ul>
           </div>
