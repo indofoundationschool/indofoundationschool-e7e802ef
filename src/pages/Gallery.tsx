@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { X } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -135,7 +137,7 @@ const Gallery = () => {
             <AnimatePresence>
               {filteredImages.map((image, index) => (
                 <motion.div
-                  key={image.src}
+                  key={`${image.src}-${index}`}
                   layout
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -145,11 +147,14 @@ const Gallery = () => {
                   onClick={() => openLightbox(image.src)}
                 >
                   <div className="relative aspect-square overflow-hidden">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt} 
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
+                    <AspectRatio ratio={1 / 1}>
+                      <img 
+                        src={image.src} 
+                        alt={image.alt} 
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        loading="lazy"
+                      />
+                    </AspectRatio>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
                       <p className="text-white p-4 font-medium">{image.alt}</p>
                     </div>
