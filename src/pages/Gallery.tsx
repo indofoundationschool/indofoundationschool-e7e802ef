@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -22,7 +21,7 @@ const Gallery = () => {
       category: 'campus',
     },
     {
-      src: '/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png', // Corrected image path
+      src: '/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png',
       alt: 'School Building Entrance',
       category: 'campus',
     },
@@ -158,6 +157,10 @@ const Gallery = () => {
                         alt={image.alt} 
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                         loading="lazy"
+                        onError={(e) => {
+                          console.error(`Failed to load image: ${image.src}`);
+                          e.currentTarget.src = '/placeholder.svg';
+                        }}
                       />
                     </AspectRatio>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -171,7 +174,6 @@ const Gallery = () => {
         </div>
       </section>
       
-      {/* Lightbox */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div 
