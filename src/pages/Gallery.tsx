@@ -27,6 +27,11 @@ const Gallery = () => {
       category: 'campus',
     },
     {
+      src: '/lovable-uploads/a606e89b-e9b7-4f65-94bf-dcafafcb4da0.png',
+      alt: 'School Ground',
+      category: 'campus',
+    },
+    {
       src: 'https://images.unsplash.com/photo-1576495169018-bd2414046c6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2Nob29sJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
       alt: 'School Campus',
       category: 'campus',
