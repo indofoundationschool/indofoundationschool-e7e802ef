@@ -22,7 +22,7 @@ const Gallery = () => {
       category: 'campus',
     },
     {
-      src: '/lovable-uploads/f8d9d0d5-c3c1-4fe9-83f8-f4a655ace3c7.png',
+      src: '/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png', // Corrected image path
       alt: 'School Building Entrance',
       category: 'campus',
     },
