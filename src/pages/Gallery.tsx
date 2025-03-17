@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -26,7 +27,7 @@ const Gallery = () => {
       category: 'campus',
     },
     {
-      src: '/lovable-uploads/a606e89b-e9b7-4f65-94bf-dcafafcb4da0.png',
+      src: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
       alt: 'School Ground',
       category: 'campus',
     },
