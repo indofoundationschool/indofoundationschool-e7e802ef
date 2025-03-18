@@ -24,7 +24,7 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
+    { name: 'Home', path: '/', isBold: true },
     { name: 'About', path: '/about', isBold: true },
     { name: 'Academics', path: '/academics', isBold: true },
     { name: 'Gallery', path: '/gallery', isBold: true },
