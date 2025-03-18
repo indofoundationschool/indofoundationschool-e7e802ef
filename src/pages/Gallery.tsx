@@ -71,6 +71,13 @@ const Gallery = () => {
       alt: 'Sports Day Award Ceremony',
       category: 'events',
       description: 'Faculty and students during the annual Sports Day award ceremony at Foundation School'
+    },
+    {
+      id: '9',
+      src: '/lovable-uploads/8052a84f-f86f-42cc-a647-d1b55ec91aca.png',
+      alt: 'Parent-Teacher Meeting',
+      category: 'classroom',
+      description: 'Teacher discussing student progress with parent during parent-teacher consultation'
     }
   ]);
 
