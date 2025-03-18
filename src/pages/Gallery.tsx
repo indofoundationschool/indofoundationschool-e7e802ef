@@ -57,6 +57,13 @@ const Gallery = () => {
       alt: 'School Building - Blue',
       category: 'school',
       description: 'Modern blue school building with multiple floors'
+    },
+    {
+      id: '7',
+      src: '/lovable-uploads/69a3cea7-8108-443f-83b9-62076db99b4e.png',
+      alt: 'Students in playground',
+      category: 'activities',
+      description: 'Students enjoying recreation time in the school playground'
     }
   ]);
 
