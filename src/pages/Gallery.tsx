@@ -66,6 +66,11 @@ const Gallery = () => {
       alt: 'Art Class',
       category: 'activities',
     },
+    {
+      src: '/lovable-uploads/034b0d7a-1a9b-404c-9e27-7201fc842929.png',
+      alt: 'Award Ceremony',
+      category: 'events',
+    },
   ];
 
   const [activeCategory, setActiveCategory] = useState('all');
