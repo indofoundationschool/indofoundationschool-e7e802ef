@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -59,6 +60,12 @@ const Gallery = () => {
     {
       src: '/lovable-uploads/3b91be67-5455-4b51-b529-c98a294b360b.png',
       alt: 'Teaching Staff in Traditional Sarees',
+      category: 'staff',
+      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+    },
+    {
+      src: '/lovable-uploads/121dacb4-8fe5-47b6-88eb-d5c7307d89ce.png',
+      alt: 'Teaching Staff in Traditional Sarees with Principal',
       category: 'staff',
       fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
     }
