@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -8,7 +7,7 @@ import Layout from '@/components/layout/Layout';
 
 const features = [
   {
-    title: "Excellence in Education",
+    title: "<strong>Excellence in Education</strong>",
     description: "We provide an enriching educational environment that fosters academic excellence and personal growth.",
     icon: GraduationCap,
   },
@@ -203,7 +202,7 @@ const Index = () => {
                 <div className="bg-school-blue/10 p-3 rounded-lg w-fit mb-4">
                   <feature.icon className="w-6 h-6 text-school-blue" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-2" dangerouslySetInnerHTML={{ __html: feature.title }}></h3>
                 <p className="text-gray-600 flex-grow">
                   {feature.description.split(' ').map((word, i) => 
                     ['enriching', 'excellence', 'experienced', 'dedicated', 'balanced', 'State-of-the-art'].includes(word) 
