@@ -28,7 +28,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Academics', path: '/academics' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Enquire', path: '/enquire' },
+    { name: 'Enquire', path: '/enquire', isBold: true },
   ];
 
   const socialLinks = [
@@ -77,7 +77,11 @@ const Navbar = () => {
                 key={link.path} 
                 to={link.path}
                 className={({ isActive }) => 
-                  cn("nav-link", isActive && "active-nav-link")
+                  cn(
+                    "nav-link", 
+                    isActive && "active-nav-link",
+                    link.isBold && "font-bold"
+                  )
                 }
                 onClick={closeMenu}
               >
@@ -130,7 +134,11 @@ const Navbar = () => {
                 key={link.path} 
                 to={link.path}
                 className={({ isActive }) => 
-                  cn("p-2 rounded-md", isActive ? "bg-school-blue/10 text-school-blue font-medium" : "text-gray-700 hover:bg-gray-100")
+                  cn(
+                    "p-2 rounded-md", 
+                    isActive ? "bg-school-blue/10 text-school-blue font-medium" : "text-gray-700 hover:bg-gray-100",
+                    link.isBold && "font-bold"
+                  )
                 }
                 onClick={closeMenu}
               >
