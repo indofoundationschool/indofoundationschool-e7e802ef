@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { X, ImageOff } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { toast } from '@/components/ui/use-toast';
+import { toast } from '@/hooks/use-toast';
+import ImageUploadForm from '@/components/gallery/ImageUploadForm';
 
 interface GalleryImage {
   src: string;
@@ -17,6 +17,7 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [uploadedImages, setUploadedImages] = useState<GalleryImage[]>([]);
 
   const categories = [
     { name: 'Campus', id: 'campus' },
@@ -93,7 +94,6 @@ const Gallery = () => {
     const preloadImages = async () => {
       console.log("Starting to preload images...");
       
-      // Add some placeholder images for the classroom, events categories
       const placeholderImages = [
         {
           src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+1',
@@ -163,17 +163,17 @@ const Gallery = () => {
 
   const [activeCategory, setActiveCategory] = useState('all');
 
+  const allImages = [...images, ...uploadedImages];
+
   const filteredImages = activeCategory === 'all' 
-    ? [...images, 
-       // Add placeholder images for empty categories
+    ? [...allImages, 
        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+1', alt: 'Modern Classroom', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom'},
        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+2', alt: 'Science Lab', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Science+Lab'},
        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day', alt: 'Annual Day Celebration', category: 'events', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day'},
        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Event', alt: 'Cultural Fest', category: 'events', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Fest'},
        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Art+Class', alt: 'Art Class', category: 'activities', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Art+Class'}
       ] 
-    : [...images.filter(image => image.category === activeCategory),
-       // If filtering by category, add placeholder images for that category if it's empty
+    : [...allImages.filter(image => image.category === activeCategory),
        ...(activeCategory === 'classrooms' ? [
         {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+1', alt: 'Modern Classroom', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom'},
         {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+2', alt: 'Science Lab', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Science+Lab'}
@@ -210,6 +210,10 @@ const Gallery = () => {
     return failedImages[image.src] ? image.fallbackSrc : image.src;
   };
 
+  const handleImageUploaded = (newImage: GalleryImage) => {
+    setUploadedImages(prev => [newImage, ...prev]);
+  };
+
   return (
     <Layout>
       <section className="relative pt-20 pb-16 bg-gradient-to-b from-school-blue/5 to-white">
@@ -229,36 +233,49 @@ const Gallery = () => {
             <p className="text-lg text-gray-600">Visual highlights of our campus, classrooms, events, and activities</p>
           </motion.div>
           
-          <motion.div 
-            className="flex justify-center mb-10 flex-wrap gap-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <button
-              onClick={() => setActiveCategory('all')}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeCategory === 'all'
-                  ? 'bg-school-blue text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+          <div className="flex justify-between items-center mb-10 flex-wrap gap-4">
+            <motion.div 
+              className="flex justify-center flex-wrap gap-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
             >
-              All
-            </button>
-            {categories.map((category) => (
               <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => setActiveCategory('all')}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category.id
+                  activeCategory === 'all'
                     ? 'bg-school-blue text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
-                {category.name}
+                All
               </button>
-            ))}
-          </motion.div>
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    activeCategory === category.id
+                      ? 'bg-school-blue text-white'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              <ImageUploadForm 
+                categories={categories} 
+                onImageUploaded={handleImageUploaded} 
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
       
@@ -355,4 +372,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
