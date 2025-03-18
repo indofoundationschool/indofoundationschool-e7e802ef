@@ -29,6 +29,12 @@ const Gallery = () => {
 
   const images: GalleryImage[] = [
     {
+      src: '/lovable-uploads/0b1f4309-e06a-461d-b090-8e3aae90bc19.png',
+      alt: 'EVS Quiz with Students and Teachers',
+      category: 'events',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=EVS+Quiz',
+    },
+    {
       src: '/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png',
       alt: 'Indo Foundation School Building',
       category: 'campus',
