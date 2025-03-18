@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, Users, Award, Target, Shield, Heart } from 'lucide-react';
@@ -154,8 +153,8 @@ const About = () => {
               <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                 <div className="relative w-full md:w-auto md:flex-shrink-0">
                   <img 
-                    src="/lovable-uploads/6f4d6428-f17a-4b84-be4f-195be80145f6.png" 
-                    alt="Foundation School Sports Day Celebration" 
+                    src="/lovable-uploads/eb51e1ea-1b39-4133-80dd-9050e028301e.png" 
+                    alt="Students celebrating graduation by tossing caps" 
                     className="w-full md:w-auto md:h-60 object-cover rounded-lg shadow-md"
                   />
                 </div>
@@ -176,4 +175,3 @@ const About = () => {
 };
 
 export default About;
-
