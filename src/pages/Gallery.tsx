@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -29,6 +28,12 @@ const Gallery = () => {
   ];
 
   const images: GalleryImage[] = [
+    {
+      src: '/lovable-uploads/22f48bf7-5d54-49a3-b6fc-491d6d2cc4de.png',
+      alt: 'Teacher Interacting with Student at Desk',
+      category: 'events',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Teacher+Student+Interaction',
+    },
     {
       src: '/lovable-uploads/0b1f4309-e06a-461d-b090-8e3aae90bc19.png',
       alt: 'EVS Quiz with Students and Teachers',
