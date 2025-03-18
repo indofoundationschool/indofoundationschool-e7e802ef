@@ -43,7 +43,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <strong>Nurturing minds</strong>, <strong>shaping futures</strong>. We provide a <strong>holistic educational experience</strong> focused on <strong>academic excellence</strong> and <strong>character development</strong>.
+              <strong>Nurturing minds</strong>, <strong>shaping futures</strong>. We provide a <strong>holistic educational experience</strong> focused on <strong>academic excellence</strong>, <strong>character development</strong> and <strong>temple traditions</strong>.
             </motion.p>
             
             <motion.div 

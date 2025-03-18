@@ -19,8 +19,8 @@ const features = [
     icon: Award,
   },
   {
-    title: "Modern Facilities",
-    description: "State-of-the-art facilities designed to enhance the learning experience of our students.",
+    title: "<strong>Temple Values</strong>",
+    description: "Our curriculum incorporates ancient temple wisdom and traditions for holistic development.",
     icon: Newspaper,
   },
 ];
@@ -46,7 +46,7 @@ const FeaturesSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            We are committed to providing a <strong>nurturing environment</strong> that fosters <strong>academic excellence</strong> and <strong>character development</strong>.
+            We are committed to providing a <strong>nurturing environment</strong> that fosters <strong>academic excellence</strong>, <strong>character development</strong> and <strong>temple traditions</strong>.
           </motion.p>
         </div>
         
@@ -66,7 +66,7 @@ const FeaturesSection = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2" dangerouslySetInnerHTML={{ __html: feature.title }}></h3>
               <p className="text-gray-600 flex-grow">
                 {feature.description.split(' ').map((word, i) => 
-                  ['enriching', 'excellence', 'experienced', 'dedicated', 'balanced', 'State-of-the-art'].includes(word) 
+                  ['enriching', 'excellence', 'experienced', 'dedicated', 'balanced', 'State-of-the-art', 'temple', 'wisdom', 'traditions', 'holistic'].includes(word) 
                     ? <strong key={i}>{word} </strong> 
                     : word + ' '
                 )}
