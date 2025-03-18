@@ -6,6 +6,14 @@ import { X } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { toast } from '@/components/ui/use-toast';
 
+// Define image type for better type safety
+interface GalleryImage {
+  src: string;
+  alt: string;
+  category: string;
+  fallbackSrc: string;
+}
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
@@ -16,9 +24,10 @@ const Gallery = () => {
     { name: 'Classrooms', id: 'classrooms' },
     { name: 'Events', id: 'events' },
     { name: 'Activities', id: 'activities' },
+    { name: 'Staff', id: 'staff' },
   ];
 
-  const images = [
+  const images: GalleryImage[] = [
     {
       src: '/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png',
       alt: 'Indo Foundation School Building',
@@ -36,6 +45,12 @@ const Gallery = () => {
       alt: 'Sports Day',
       category: 'activities',
       fallbackSrc: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpbGRyZW4lMjBzcG9ydHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+    },
+    {
+      src: '/lovable-uploads/7854538a-ded0-4d12-9c9e-5f7fe5a29e76.png',
+      alt: 'Staff of the School',
+      category: 'staff',
+      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
     },
     {
       src: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
@@ -91,7 +106,7 @@ const Gallery = () => {
   useEffect(() => {
     const preloadImages = async () => {
       const promises = images.map((image) => {
-        return new Promise((resolve) => {
+        return new Promise<{src: string, success: boolean}>((resolve) => {
           const img = new Image();
           img.onload = () => resolve({ src: image.src, success: true });
           img.onerror = () => resolve({ src: image.src, success: false });
@@ -101,7 +116,7 @@ const Gallery = () => {
 
       const results = await Promise.all(promises);
       const failedImgs = results.reduce((acc: Record<string, boolean>, { src, success }) => {
-        if (!success) acc[src as string] = true;
+        if (!success) acc[src] = true;
         return acc;
       }, {});
 
@@ -138,7 +153,7 @@ const Gallery = () => {
     document.body.style.overflow = 'auto';
   };
 
-  const handleImageError = (image: (typeof images)[0]) => {
+  const handleImageError = (image: GalleryImage) => {
     console.error(`Failed to load image: ${image.alt} in ${image.category} category`);
     
     setFailedImages(prev => ({
@@ -153,7 +168,7 @@ const Gallery = () => {
     });
   };
 
-  const getImageSrc = (image: (typeof images)[0]) => {
+  const getImageSrc = (image: GalleryImage) => {
     return failedImages[image.src] ? image.fallbackSrc : image.src;
   };
 
