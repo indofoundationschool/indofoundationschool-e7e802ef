@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
-import { X } from 'lucide-react';
+import { X, ImageOff } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { toast } from '@/components/ui/use-toast';
 
@@ -31,71 +31,109 @@ const Gallery = () => {
       src: '/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png',
       alt: 'Indo Foundation School Building',
       category: 'campus',
-      fallbackSrc: 'https://images.unsplash.com/photo-1576495169018-bd2414046c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=School+Building',
     },
     {
       src: '/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png',
       alt: 'School Building Entrance',
       category: 'campus',
-      fallbackSrc: 'https://images.unsplash.com/photo-1576495169018-bd2414046c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Building+Entrance',
     },
     {
       src: '/lovable-uploads/0a8d4eef-9e06-4cc6-937e-4c708371548f.png',
       alt: 'Sports Day',
       category: 'activities',
-      fallbackSrc: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpbGRyZW4lMjBzcG9ydHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Sports+Day',
     },
     {
       src: '/lovable-uploads/7854538a-ded0-4d12-9c9e-5f7fe5a29e76.png',
       alt: 'Staff of the School',
       category: 'staff',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=School+Staff',
     },
     {
       src: '/lovable-uploads/9020525a-ce59-4343-9b22-8ff862296ac9.png',
       alt: 'Teaching Staff in Traditional Attire',
       category: 'staff',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Teaching+Staff',
     },
     {
       src: '/lovable-uploads/3b91be67-5455-4b51-b529-c98a294b360b.png',
       alt: 'Teaching Staff in Traditional Sarees',
       category: 'staff',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Staff+in+Sarees',
     },
     {
       src: '/lovable-uploads/121dacb4-8fe5-47b6-88eb-d5c7307d89ce.png',
       alt: 'Teaching Staff in Traditional Sarees with Principal',
       category: 'staff',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Staff+with+Principal',
     },
     {
       src: '/lovable-uploads/d6e0d78b-1b61-4719-b1d9-2e7401b3e617.png',
       alt: 'Staff of the School',
       category: 'staff',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=School+Staff',
     },
     {
       src: '/lovable-uploads/d7af8fd2-81cf-4d58-b5b2-579de2f27860.png',
       alt: 'Teaching Staff in Traditional Sarees',
       category: 'staff',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Staff+in+Sarees',
     },
     {
       src: '/lovable-uploads/aaf53f8c-c87f-4686-9bec-8adba91ae3bf.png',
       alt: 'Teaching Staff with Principal in Traditional Sarees',
       category: 'staff',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Staff+with+Principal',
     }
   ];
 
   useEffect(() => {
     const preloadImages = async () => {
-      const promises = images.map((image) => {
+      console.log("Starting to preload images...");
+      
+      // Add some placeholder images for the classroom, events categories
+      const placeholderImages = [
+        {
+          src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+1',
+          alt: 'Modern Classroom',
+          category: 'classrooms',
+          fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom'
+        },
+        {
+          src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+2',
+          alt: 'Science Lab',
+          category: 'classrooms',
+          fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Science+Lab'
+        },
+        {
+          src: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day',
+          alt: 'Annual Day Celebration',
+          category: 'events',
+          fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day'
+        },
+        {
+          src: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Event',
+          alt: 'Cultural Fest',
+          category: 'events',
+          fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Fest'
+        }
+      ];
+
+      const allImages = [...images, ...placeholderImages];
+      
+      const promises = allImages.map((image) => {
         return new Promise<{src: string, success: boolean}>((resolve) => {
           const img = new Image();
-          img.onload = () => resolve({ src: image.src, success: true });
-          img.onerror = () => resolve({ src: image.src, success: false });
+          img.onload = () => {
+            console.log(`Successfully loaded: ${image.src}`);
+            resolve({ src: image.src, success: true });
+          };
+          img.onerror = () => {
+            console.error(`Failed to load: ${image.src}`);
+            resolve({ src: image.src, success: false });
+          };
           img.src = image.src;
         });
       });
@@ -111,9 +149,10 @@ const Gallery = () => {
 
       const failCount = Object.keys(failedImgs).length;
       if (failCount > 0) {
+        console.log(`${failCount} images failed to load.`);
         toast({
           title: "Some images couldn't be loaded",
-          description: `${failCount} image(s) will use fallback images instead.`,
+          description: `${failCount} image(s) will use placeholder images instead.`,
           variant: "destructive",
         });
       }
@@ -125,8 +164,28 @@ const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const filteredImages = activeCategory === 'all' 
-    ? images 
-    : images.filter(image => image.category === activeCategory);
+    ? [...images, 
+       // Add placeholder images for empty categories
+       {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+1', alt: 'Modern Classroom', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom'},
+       {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+2', alt: 'Science Lab', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Science+Lab'},
+       {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day', alt: 'Annual Day Celebration', category: 'events', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day'},
+       {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Event', alt: 'Cultural Fest', category: 'events', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Fest'},
+       {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Art+Class', alt: 'Art Class', category: 'activities', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Art+Class'}
+      ] 
+    : [...images.filter(image => image.category === activeCategory),
+       // If filtering by category, add placeholder images for that category if it's empty
+       ...(activeCategory === 'classrooms' ? [
+        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+1', alt: 'Modern Classroom', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom'},
+        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+2', alt: 'Science Lab', category: 'classrooms', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Science+Lab'}
+       ] : []),
+       ...(activeCategory === 'events' ? [
+        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day', alt: 'Annual Day Celebration', category: 'events', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Annual+Day'},
+        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Event', alt: 'Cultural Fest', category: 'events', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Cultural+Fest'}
+       ] : []),
+       ...(activeCategory === 'activities' && images.filter(img => img.category === 'activities').length < 2 ? [
+        {src: 'https://placehold.co/600x400/e2e8f0/475569?text=Art+Class', alt: 'Art Class', category: 'activities', fallbackSrc: 'https://placehold.co/600x400/e2e8f0/475569?text=Art+Class'}
+       ] : [])
+      ];
 
   const openLightbox = (imageSrc: string) => {
     setSelectedImage(imageSrc);
@@ -145,12 +204,6 @@ const Gallery = () => {
       ...prev,
       [image.src]: true
     }));
-    
-    toast({
-      title: "Image load error",
-      description: `Could not load "${image.alt}" image. Using placeholder instead.`,
-      variant: "destructive",
-    });
   };
 
   const getImageSrc = (image: GalleryImage) => {
@@ -234,15 +287,25 @@ const Gallery = () => {
                   >
                     <div className="relative aspect-square overflow-hidden">
                       <AspectRatio ratio={1 / 1}>
-                        <img 
-                          src={getImageSrc(image)} 
-                          alt={image.alt} 
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                          loading="lazy"
-                          onError={() => handleImageError(image)}
-                        />
+                        <div className="w-full h-full bg-gray-100 relative">
+                          <img 
+                            src={getImageSrc(image)} 
+                            alt={image.alt} 
+                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                            loading="lazy"
+                            onError={() => handleImageError(image)}
+                          />
+                          {failedImages[image.src] && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-60">
+                              <div className="text-center px-4">
+                                <ImageOff className="h-8 w-8 text-gray-400 mx-auto mb-2" />
+                                <p className="text-sm text-gray-500">{image.alt}</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
                       </AspectRatio>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
                         <p className="text-white p-4 font-medium">{image.alt}</p>
                       </div>
                     </div>
@@ -270,16 +333,20 @@ const Gallery = () => {
             >
               <X size={24} />
             </button>
-            <motion.img 
+            <motion.div 
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               transition={{ duration: 0.3 }}
-              src={selectedImage} 
-              alt="Enlarged view" 
-              className="max-w-full max-h-[85vh] object-contain rounded"
               onClick={(e) => e.stopPropagation()}
-            />
+              className="relative max-w-4xl w-full mx-auto"
+            >
+              <img 
+                src={selectedImage} 
+                alt="Enlarged view" 
+                className="max-w-full max-h-[85vh] object-contain rounded mx-auto"
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -288,3 +355,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
