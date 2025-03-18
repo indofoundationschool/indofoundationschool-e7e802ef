@@ -24,7 +24,7 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   const navLinks = [
-    { name: 'Home', path: '/', isBold: true },
+    { name: 'Home', path: '/', isBold: true, className: "text-black" },
     { name: 'About', path: '/about', isBold: true },
     { name: 'Academics', path: '/academics', isBold: true },
     { name: 'Gallery', path: '/gallery', isBold: true },
@@ -80,7 +80,8 @@ const Navbar = () => {
                   cn(
                     "nav-link", 
                     isActive && "active-nav-link",
-                    link.isBold && "font-bold"
+                    link.isBold && "font-bold",
+                    link.className
                   )
                 }
                 onClick={closeMenu}
@@ -137,7 +138,8 @@ const Navbar = () => {
                   cn(
                     "p-2 rounded-md", 
                     isActive ? "bg-school-blue/10 text-school-blue font-medium" : "text-gray-700 hover:bg-gray-100",
-                    link.isBold && "font-bold"
+                    link.isBold && "font-bold",
+                    link.className
                   )
                 }
                 onClick={closeMenu}
