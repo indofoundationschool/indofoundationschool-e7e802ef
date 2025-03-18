@@ -24,7 +24,7 @@ const Footer = () => {
               />
               <div>
                 <h3 className="font-bold text-school-blue text-lg">Indo Foundation School</h3>
-                <p className="text-xs text-black font-bold animate-pulse">Excellence in Education</p>
+                <p className="text-xs text-black">Excellence in Education</p>
               </div>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
