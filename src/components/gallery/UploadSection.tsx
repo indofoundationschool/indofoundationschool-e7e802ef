@@ -144,7 +144,7 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="category">Category</Label>
-                      <Select value={category} onValueChange={setCategory} required>
+                      <Select value={category} onValueChange={(value) => setCategory(value)} required>
                         <SelectTrigger>
                           <SelectValue placeholder="Select a category" />
                         </SelectTrigger>
