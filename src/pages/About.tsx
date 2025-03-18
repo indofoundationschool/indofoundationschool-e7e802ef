@@ -152,11 +152,13 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                <img 
-                  src="/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png" 
-                  alt="Indo Foundation School Logo" 
-                  className="w-32 h-auto"
-                />
+                <div className="relative w-full md:w-auto md:flex-shrink-0">
+                  <img 
+                    src="/lovable-uploads/6f4d6428-f17a-4b84-be4f-195be80145f6.png" 
+                    alt="Foundation School Sports Day Celebration" 
+                    className="w-full md:w-auto md:h-60 object-cover rounded-lg shadow-md"
+                  />
+                </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Our School Motto</h3>
                   <p className="text-gray-600 italic mb-4">"विद्या परम् भूषणम्" (Knowledge is the Supreme Ornament)</p>
@@ -174,3 +176,4 @@ const About = () => {
 };
 
 export default About;
+
