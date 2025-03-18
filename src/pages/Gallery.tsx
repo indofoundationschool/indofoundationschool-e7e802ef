@@ -50,6 +50,13 @@ const Gallery = () => {
       alt: 'Cultural Program',
       category: 'events',
       description: 'Annual cultural program celebration'
+    },
+    {
+      id: '6',
+      src: '/lovable-uploads/bb112e37-aa77-49e0-8c9c-0bee5690198d.png',
+      alt: 'School Building - Blue',
+      category: 'school',
+      description: 'Modern blue school building with multiple floors'
     }
   ]);
 
