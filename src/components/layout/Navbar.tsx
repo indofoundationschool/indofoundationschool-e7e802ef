@@ -59,7 +59,7 @@ const Navbar = () => {
             />
             <div className="hidden md:block">
               <h1 className="text-xl font-bold text-school-blue">Indo Foundation School</h1>
-              <p className="text-xs text-gray-600">Excellence in Education</p>
+              <p className="text-xs text-school-blue font-medium animate-pulse">Excellence in Education</p>
             </div>
           </NavLink>
         </motion.div>
