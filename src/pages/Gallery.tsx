@@ -78,6 +78,13 @@ const Gallery = () => {
       alt: 'Parent-Teacher Meeting',
       category: 'classroom',
       description: 'Teacher discussing student progress with parent during parent-teacher consultation'
+    },
+    {
+      id: '10',
+      src: '/lovable-uploads/94eb3bed-587c-4c0a-ab3c-b578860f06cd.png',
+      alt: 'School Administration',
+      category: 'school',
+      description: 'Administrative staff checking student records at the school office'
     }
   ]);
 
