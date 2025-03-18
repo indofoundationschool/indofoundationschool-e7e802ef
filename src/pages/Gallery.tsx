@@ -80,6 +80,12 @@ const Gallery = () => {
       alt: 'Teaching Staff in Traditional Sarees',
       category: 'staff',
       fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+    },
+    {
+      src: '/lovable-uploads/aaf53f8c-c87f-4686-9bec-8adba91ae3bf.png',
+      alt: 'Teaching Staff with Principal in Traditional Sarees',
+      category: 'staff',
+      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
     }
   ];
 
