@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Facebook, Youtube } from 'lucide-react';
@@ -31,7 +32,7 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { icon: Instagram, url: "https://instagram.com", ariaLabel: "Instagram" },
+    { icon: Instagram, url: "https://www.instagram.com/indofoundationschool?igsh=czV4OXd6dXVkb3Vi&utm_source=qr", ariaLabel: "Instagram" },
     { icon: Facebook, url: "https://facebook.com", ariaLabel: "Facebook" },
     { icon: Youtube, url: "https://www.youtube.com/@indofoundationschool", ariaLabel: "YouTube" },
   ];

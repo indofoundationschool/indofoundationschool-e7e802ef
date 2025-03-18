@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { icon: Instagram, url: "https://instagram.com", name: "Instagram" },
+    { icon: Instagram, url: "https://www.instagram.com/indofoundationschool?igsh=czV4OXd6dXVkb3Vi&utm_source=qr", name: "Instagram" },
     { icon: Facebook, url: "https://facebook.com", name: "Facebook" },
     { icon: Youtube, url: "https://www.youtube.com/@indofoundationschool", name: "YouTube" },
   ];
