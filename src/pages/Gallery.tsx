@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -98,8 +99,6 @@ const Gallery = () => {
 
   useEffect(() => {
     const preloadImages = async () => {
-      console.log("Starting to preload images...");
-      
       const placeholderImages = [
         {
           src: 'https://placehold.co/600x400/e2e8f0/475569?text=Classroom+1',
@@ -133,11 +132,9 @@ const Gallery = () => {
         return new Promise<{src: string, success: boolean}>((resolve) => {
           const img = new Image();
           img.onload = () => {
-            console.log(`Successfully loaded: ${image.src}`);
             resolve({ src: image.src, success: true });
           };
           img.onerror = () => {
-            console.error(`Failed to load: ${image.src}`);
             resolve({ src: image.src, success: false });
           };
           img.src = image.src;
@@ -155,7 +152,6 @@ const Gallery = () => {
 
       const failCount = Object.keys(failedImgs).length;
       if (failCount > 0) {
-        console.log(`${failCount} images failed to load.`);
         toast({
           title: "Some images couldn't be loaded",
           description: `${failCount} image(s) will use placeholder images instead.`,
@@ -204,8 +200,6 @@ const Gallery = () => {
   };
 
   const handleImageError = (image: GalleryImage) => {
-    console.error(`Failed to load image: ${image.alt} in ${image.category} category`);
-    
     setFailedImages(prev => ({
       ...prev,
       [image.src]: true

@@ -103,7 +103,6 @@ const ImageUploadForm = ({ categories, onImageUploaded }: ImageUploadFormProps) 
       form.reset();
       setOpen(false);
     } catch (error) {
-      console.error("Upload error:", error);
       toast({
         title: "Upload Failed",
         description: error instanceof Error ? error.message : "Failed to upload image",
