@@ -8,7 +8,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Instagram, url: "https://instagram.com", name: "Instagram" },
     { icon: Facebook, url: "https://facebook.com", name: "Facebook" },
-    { icon: Youtube, url: "https://youtube.com", name: "YouTube" },
+    { icon: Youtube, url: "https://www.youtube.com/@indofoundationschool", name: "YouTube" },
   ];
 
   return (
