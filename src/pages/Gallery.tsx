@@ -52,6 +52,13 @@ const Gallery = () => {
       category: 'staff',
       fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
     },
+    // Adding the new uploaded image
+    {
+      src: '/lovable-uploads/9020525a-ce59-4343-9b22-8ff862296ac9.png',
+      alt: 'Teaching Staff in Traditional Attire',
+      category: 'staff',
+      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+    },
     {
       src: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
       alt: 'School Ground',
