@@ -64,6 +64,13 @@ const Gallery = () => {
       alt: 'Students in playground',
       category: 'activities',
       description: 'Students enjoying recreation time in the school playground'
+    },
+    {
+      id: '8',
+      src: '/lovable-uploads/2f44831a-4767-4d4c-a1ba-545a20d0b014.png',
+      alt: 'Sports Day Award Ceremony',
+      category: 'events',
+      description: 'Faculty and students during the annual Sports Day award ceremony at Foundation School'
     }
   ]);
 
