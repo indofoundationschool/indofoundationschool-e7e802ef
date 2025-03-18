@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { X } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { toast } from '@/components/ui/use-toast';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -67,7 +68,7 @@ const Gallery = () => {
       category: 'activities',
     },
     {
-      src: '/lovable-uploads/034b0d7a-1a9b-404c-9e27-7201fc842929.png',
+      src: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
       alt: 'Award Ceremony',
       category: 'events',
     },
@@ -87,6 +88,15 @@ const Gallery = () => {
   const closeLightbox = () => {
     setSelectedImage(null);
     document.body.style.overflow = 'auto';
+  };
+
+  const handleImageError = (image: { alt: string, category: string }) => {
+    console.error(`Failed to load image: ${image.alt} in ${image.category} category`);
+    toast({
+      title: "Image load error",
+      description: `Could not load "${image.alt}" image. Using placeholder instead.`,
+      variant: "destructive",
+    });
   };
 
   return (
@@ -163,10 +173,7 @@ const Gallery = () => {
                         alt={image.alt} 
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                         loading="lazy"
-                        onError={(e) => {
-                          console.error(`Failed to load image: ${image.src}`);
-                          e.currentTarget.src = '/placeholder.svg';
-                        }}
+                        onError={() => handleImageError(image)}
                       />
                     </AspectRatio>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
