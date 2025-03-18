@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -58,7 +57,7 @@ const Gallery = () => {
       category: 'events',
     },
     {
-      src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpbGRyZW4lMjBzcG9ydHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      src: '/lovable-uploads/0a8d4eef-9e06-4cc6-937e-4c708371548f.png',
       alt: 'Sports Day',
       category: 'activities',
     },
