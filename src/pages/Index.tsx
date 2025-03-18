@@ -125,7 +125,7 @@ const Index = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
-                Nurturing minds, shaping futures. We provide a holistic educational experience focused on academic excellence and character development.
+                <strong>Nurturing minds</strong>, <strong>shaping futures</strong>. We provide a <strong>holistic educational experience</strong> focused on <strong>academic excellence</strong> and <strong>character development</strong>.
               </motion.p>
               
               <motion.div 
@@ -186,7 +186,7 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              We are committed to providing a nurturing environment that fosters academic excellence and character development.
+              We are committed to providing a <strong>nurturing environment</strong> that fosters <strong>academic excellence</strong> and <strong>character development</strong>.
             </motion.p>
           </div>
           
@@ -204,7 +204,13 @@ const Index = () => {
                   <feature.icon className="w-6 h-6 text-school-blue" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 flex-grow">{feature.description}</p>
+                <p className="text-gray-600 flex-grow">
+                  {feature.description.split(' ').map((word, i) => 
+                    ['enriching', 'excellence', 'experienced', 'dedicated', 'balanced', 'State-of-the-art'].includes(word) 
+                      ? <strong key={i}>{word} </strong> 
+                      : word + ' '
+                  )}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -226,7 +232,7 @@ const Index = () => {
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-school-blue mb-2">
                   {animatedNumbers[index]}+
                 </h3>
-                <p className="text-gray-600">{achievement.label}</p>
+                <p className="text-gray-600"><strong>{achievement.label}</strong></p>
               </motion.div>
             ))}
           </div>
@@ -252,7 +258,7 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              Take the first step towards providing your child with an exceptional educational experience. Contact us today to learn more or schedule a visit.
+              Take the first step towards providing your child with an <strong>exceptional educational experience</strong>. Contact us today to learn more or schedule a visit.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
