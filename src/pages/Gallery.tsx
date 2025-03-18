@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -6,7 +5,6 @@ import { X } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { toast } from '@/components/ui/use-toast';
 
-// Define image type for better type safety
 interface GalleryImage {
   src: string;
   alt: string;
@@ -52,7 +50,6 @@ const Gallery = () => {
       category: 'staff',
       fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
     },
-    // Adding the new uploaded image
     {
       src: '/lovable-uploads/9020525a-ce59-4343-9b22-8ff862296ac9.png',
       alt: 'Teaching Staff in Traditional Attire',
@@ -60,56 +57,13 @@ const Gallery = () => {
       fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
     },
     {
-      src: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-      alt: 'School Ground',
-      category: 'campus',
-      fallbackSrc: 'https://images.unsplash.com/photo-1576495169018-bd2414046c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1576495169018-bd2414046c6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2Nob29sJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
-      alt: 'School Campus',
-      category: 'campus',
-      fallbackSrc: 'https://images.unsplash.com/photo-1576495169018-bd2414046c6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwY2xhc3Nyb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      alt: 'Primary Classroom',
-      category: 'classrooms',
-      fallbackSrc: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1564069114553-7215e1ff1890?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xhc3Nyb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
-      alt: 'Computer Lab',
-      category: 'classrooms',
-      fallbackSrc: 'https://images.unsplash.com/photo-1564069114553-7215e1ff1890?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1587691592099-24045742c181?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
-      alt: 'Annual School Function',
-      category: 'events',
-      fallbackSrc: 'https://images.unsplash.com/photo-1587691592099-24045742c181?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
-      alt: 'Cultural Day Celebration',
-      category: 'events',
-      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-      alt: 'Award Ceremony',
-      category: 'events',
-      fallbackSrc: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2hpbGRyZW4lMjBwYWludGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
-      alt: 'Art Class',
-      category: 'activities',
-      fallbackSrc: 'https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60',
-    },
+      src: '/lovable-uploads/3b91be67-5455-4b51-b529-c98a294b360b.png',
+      alt: 'Teaching Staff in Traditional Sarees',
+      category: 'staff',
+      fallbackSrc: 'https://images.unsplash.com/photo-1511578194003-00c80e42dc9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2Nob29sJTIwZXZlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+    }
   ];
 
-  // Preload images to check their validity when component mounts
   useEffect(() => {
     const preloadImages = async () => {
       const promises = images.map((image) => {
@@ -130,7 +84,6 @@ const Gallery = () => {
       setFailedImages(failedImgs);
       setImagesLoaded(true);
 
-      // Notify if any images failed to load
       const failCount = Object.keys(failedImgs).length;
       if (failCount > 0) {
         toast({
