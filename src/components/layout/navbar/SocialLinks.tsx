@@ -24,7 +24,7 @@ const SocialLink = ({ icon: Icon, url, ariaLabel, index = 0, isMobile = false }:
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: (isMobile ? 0.5 : 0.4) + (index * 0.1) }}
     >
-      <Icon size={isMobile ? 20 : 18} />
+      <Icon width={isMobile ? 20 : 18} height={isMobile ? 20 : 18} />
     </motion.a>
   );
 };
