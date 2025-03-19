@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { GraduationCap, Users, Award, Newspaper, BookOpen, Star, Sparkles, Heart } from 'lucide-react';
+import { GraduationCap, Users, Award, Newspaper, BookOpen, Star, Sparkles, Heart, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const features = [
