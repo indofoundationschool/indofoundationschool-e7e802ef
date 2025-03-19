@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, GraduationCap, Palette, Dumbbell, Star, Music, Languages, Microscope, Award, Lightbulb, FileText, ChevronRight } from 'lucide-react';
