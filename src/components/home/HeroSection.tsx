@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, Star, Heart, Trophy } from 'lucide-react';
+import { ArrowRight, Sparkles, Star, Heart, Trophy, BookOpen, GraduationCap, Sun } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useEffect, useState } from 'react';
 
@@ -24,59 +24,86 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-school-blue/10 via-school-blue/5 to-white flex items-center overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-b from-school-blue/20 via-school-blue/10 to-white flex items-center overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute top-0 right-0 w-[70%] h-[70%] bg-gradient-to-br from-school-blue/20 to-school-blue-light/10 rounded-full blur-3xl"
+        <motion.div 
+          className="absolute top-0 right-0 w-[80%] h-[80%] bg-gradient-to-br from-school-blue/30 to-school-blue-light/20 rounded-full blur-3xl"
           style={{
-            transform: `translate(${mousePosition.x / 50}px, ${mousePosition.y / 50}px)`,
-            transition: 'transform 0.3s ease-out',
+            transform: `translate(${mousePosition.x / 40}px, ${mousePosition.y / 40}px)`,
           }}
-        ></div>
-        <div className="absolute -bottom-20 -left-20 w-[50%] h-[50%] bg-gradient-to-tr from-school-blue-dark/10 to-school-blue/5 rounded-full blur-3xl"></div>
+          animate={{
+            scale: [1, 1.05, 1],
+            opacity: [0.7, 0.8, 0.7],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        ></motion.div>
+        <motion.div 
+          className="absolute -bottom-20 -left-20 w-[60%] h-[60%] bg-gradient-to-tr from-school-blue-dark/20 to-school-blue/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.6, 0.8, 0.6],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: 1,
+          }}
+        ></motion.div>
         
         {/* Floating elements */}
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: 0.3 + Math.random() * 0.4,
-            }}
-            animate={{
-              y: [0, -(10 + Math.random() * 20), 0],
-              opacity: [0.3, 0.6, 0.3],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 4,
-              repeat: Infinity,
-              repeatType: "reverse",
-              delay: Math.random() * 2,
-            }}
-          >
-            {i % 3 === 0 ? (
-              <Sparkles size={15 + i * 5} className="text-school-blue/60" />
-            ) : i % 3 === 1 ? (
-              <Star size={15 + i * 5} className="text-school-blue-light/60" />
-            ) : (
-              <Heart size={15 + i * 5} className="text-school-blue-dark/50" />
-            )}
-          </motion.div>
-        ))}
+        {[...Array(8)].map((_, i) => {
+          const icons = [
+            <Sparkles key={`sparkle-${i}`} size={15 + i * 5} className="text-school-blue/70" />,
+            <Star key={`star-${i}`} size={15 + i * 5} className="text-school-blue-light/70" />,
+            <Heart key={`heart-${i}`} size={15 + i * 5} className="text-school-blue-dark/60" />,
+            <BookOpen key={`book-${i}`} size={15 + i * 5} className="text-school-blue/70" />,
+            <GraduationCap key={`cap-${i}`} size={15 + i * 5} className="text-school-blue-dark/60" />,
+            <Sun key={`sun-${i}`} size={15 + i * 5} className="text-school-blue-light/70" />
+          ];
+
+          return (
+            <motion.div
+              key={i}
+              className="absolute"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: 0.3 + Math.random() * 0.4,
+              }}
+              animate={{
+                y: [0, -(10 + Math.random() * 30), 0],
+                x: [0, (Math.random() * 20 - 10), 0],
+                opacity: [0.3, 0.7, 0.3],
+                scale: [1, 1.2, 1],
+                rotate: [0, 10, 0, -10, 0],
+              }}
+              transition={{
+                duration: 5 + Math.random() * 5,
+                repeat: Infinity,
+                repeatType: "reverse",
+                delay: Math.random() * 3,
+              }}
+            >
+              {icons[i % icons.length]}
+            </motion.div>
+          );
+        })}
       </div>
       
       <div className="container mx-auto px-6 py-28 md:py-36 relative z-10">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left column: Text and buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col space-y-6"
+            className="flex flex-col space-y-8"
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -84,10 +111,10 @@ const HeroSection = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <Badge 
-                className="bg-gradient-to-r from-school-blue/30 to-school-blue-light/30 text-school-blue-dark border-0 px-4 py-1.5 rounded-full text-sm font-medium inline-flex items-center gap-1.5 hover:from-school-blue/40 hover:to-school-blue-light/40 backdrop-blur-sm shadow-sm"
+                className="bg-gradient-to-r from-school-blue/40 to-school-blue-light/40 text-school-blue-dark border-0 px-4 py-2 rounded-full text-sm font-medium inline-flex items-center gap-1.5 hover:from-school-blue/50 hover:to-school-blue-light/50 backdrop-blur-sm shadow-md"
               >
-                <Sparkles size={14} className="text-school-blue-dark" />
-                <span>Welcome to</span>
+                <Sparkles size={16} className="text-school-blue-dark" />
+                <span>Nurturing Future Leaders</span>
               </Badge>
             </motion.div>
             
@@ -104,13 +131,13 @@ const HeroSection = () => {
               <motion.span 
                 className="inline-block text-school-blue-dark ml-1"
                 animate={{
-                  rotateZ: [0, 10, 0, -10, 0],
-                  scale: [1, 1.1, 1, 1.1, 1],
+                  rotateZ: [0, 15, 0, -15, 0],
+                  scale: [1, 1.2, 1, 1.2, 1],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 3,
                   repeat: Infinity,
-                  repeatDelay: 5,
+                  repeatDelay: 4,
                 }}
               >
                 <Trophy className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 inline-block" />
@@ -134,9 +161,9 @@ const HeroSection = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-school-blue to-school-blue-dark hover:from-school-blue-dark hover:to-school-blue text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
+                className="bg-gradient-to-r from-school-blue to-school-blue-dark hover:from-school-blue-dark hover:to-school-blue text-white rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 group relative overflow-hidden border-2 border-white/20"
               >
-                <Link to="/about" className="flex items-center space-x-2 relative z-10">
+                <Link to="/about" className="flex items-center space-x-2 relative z-10 py-1">
                   <span>Discover More</span>
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
@@ -147,7 +174,7 @@ const HeroSection = () => {
                       ease: "easeInOut" 
                     }}
                   >
-                    <ArrowRight size={16} />
+                    <ArrowRight size={18} />
                   </motion.div>
                 </Link>
                 <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-full"></span>
@@ -155,9 +182,9 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-2 border-school-blue text-school-blue hover:bg-school-blue/10 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group relative overflow-hidden"
+                className="border-2 border-school-blue text-school-blue hover:bg-school-blue/10 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
               >
-                <Link to="/enquire" className="flex items-center space-x-2 relative z-10">
+                <Link to="/enquire" className="flex items-center space-x-2 relative z-10 py-1">
                   <span>Enquire Now</span>
                 </Link>
                 <span className="absolute inset-0 bg-school-blue/10 -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out rounded-full"></span>
@@ -172,30 +199,30 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex justify-center items-center"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-lg">
               {/* Decorative background elements */}
-              <div className="absolute -z-10 inset-0 bg-gradient-to-br from-school-blue/30 to-school-blue-light/20 rounded-full blur-3xl transform scale-75 translate-x-10 translate-y-10"></div>
+              <div className="absolute -z-10 inset-0 bg-gradient-to-br from-school-blue/40 to-school-blue-light/30 rounded-full blur-3xl transform scale-90 translate-x-10 translate-y-10"></div>
               <motion.div
                 animate={{ 
-                  y: [0, -10, 0],
+                  y: [0, -15, 0],
                 }}
                 transition={{ 
-                  duration: 4,
+                  duration: 6,
                   repeat: Infinity,
                   repeatType: "reverse",
                   ease: "easeInOut"
                 }}
                 className="relative z-10"
               >
-                <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white/80 transition-all duration-500 hover:scale-[1.02] hover:shadow-school-blue/20 hover:shadow-xl">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 transition-all duration-500 hover:scale-[1.03] hover:shadow-school-blue/30 hover:shadow-2xl">
                   {/* Animated overlay */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-100/30 to-transparent"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-100/40 to-transparent"
                     animate={{
                       x: ["-100%", "100%"],
                     }}
                     transition={{
-                      duration: 3,
+                      duration: 4,
                       repeat: Infinity,
                       repeatType: "loop",
                       ease: "linear",
@@ -203,10 +230,10 @@ const HeroSection = () => {
                   />
                   
                   {/* Decorative corner elements */}
-                  <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-school-blue/50 rounded-tl-lg"></div>
-                  <div className="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-school-blue/50 rounded-tr-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-12 h-12 border-b-4 border-l-4 border-school-blue/50 rounded-bl-lg"></div>
-                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-school-blue/50 rounded-br-lg"></div>
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-school-blue/60 rounded-tl-lg"></div>
+                  <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-school-blue/60 rounded-tr-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-school-blue/60 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-school-blue/60 rounded-br-lg"></div>
                   
                   <img 
                     src="/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png" 
@@ -218,10 +245,10 @@ const HeroSection = () => {
               
               {/* Decorative floating elements */}
               <motion.div
-                className="absolute -bottom-6 -right-6 bg-white rounded-full p-3 shadow-lg z-20"
+                className="absolute -bottom-8 -right-8 bg-white rounded-full p-4 shadow-xl z-20 border-2 border-school-blue/20"
                 animate={{ 
                   y: [0, -15, 0],
-                  rotate: [0, 5, 0, -5, 0]
+                  rotate: [0, 8, 0, -8, 0]
                 }}
                 transition={{ 
                   duration: 6,
@@ -230,7 +257,25 @@ const HeroSection = () => {
                   ease: "easeInOut"
                 }}
               >
-                <Trophy size={30} className="text-school-blue" />
+                <Trophy size={38} className="text-school-blue" />
+              </motion.div>
+              
+              <motion.div
+                className="absolute top-10 -left-10 bg-white rounded-full p-3 shadow-lg z-20 border-2 border-school-blue-light/20"
+                animate={{ 
+                  y: [0, 10, 0],
+                  x: [0, 5, 0],
+                  rotate: [0, -5, 0]
+                }}
+                transition={{ 
+                  duration: 7,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+              >
+                <GraduationCap size={28} className="text-school-blue-light" />
               </motion.div>
             </div>
           </motion.div>
