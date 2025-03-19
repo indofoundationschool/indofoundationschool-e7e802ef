@@ -66,7 +66,11 @@ const About = () => {
           }}>
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-tr from-school-blue/30 via-transparent to-transparent mix-blend-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sfGVufDB8fDB8fHww%3D&auto=format&fit=crop&w=800&q=60" alt="Indo Foundation School" className="w-full h-auto object-cover rounded-xl" />
+                <img 
+                  src="/lovable-uploads/21cc8fe2-cd98-4e3b-ad8c-a6e77f82ee16.png" 
+                  alt="Indo Foundation School students and teachers" 
+                  className="w-full h-auto object-cover rounded-xl" 
+                />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-school-blue/20 rounded-full blur-2xl"></div>
             </motion.div>
