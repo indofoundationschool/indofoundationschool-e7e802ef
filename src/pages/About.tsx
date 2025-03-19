@@ -1,34 +1,38 @@
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, Users, Award, Target, Shield, Heart } from 'lucide-react';
+
 const About = () => {
-  const values = [{
-    title: "Excellence",
-    description: "We strive for excellence in all aspects of education and character development.",
-    icon: Award
-  }, {
-    title: "Integrity",
-    description: "We uphold the highest standards of honesty, ethics, and transparency.",
-    icon: Shield
-  }, {
-    title: "Innovation",
-    description: "We embrace innovative teaching methods and technologies to enhance learning.",
-    icon: BookOpen
-  }, {
-    title: "Inclusivity",
-    description: "We create an inclusive environment that celebrates diversity and respects all individuals.",
-    icon: Users
-  }, {
-    title: "Leadership",
-    description: "We develop future leaders who will make positive contributions to society.",
-    icon: Target
-  }, {
-    title: "Compassion",
-    description: "We nurture empathy and kindness in our students and community.",
-    icon: Heart
-  }];
+  const values = [
+    {
+      title: "Excellence",
+      description: "We strive for excellence in all aspects of education and character development.",
+      icon: Award
+    }, {
+      title: "Integrity",
+      description: "We uphold the highest standards of honesty, ethics, and transparency.",
+      icon: Shield
+    }, {
+      title: "Innovation",
+      description: "We embrace innovative teaching methods and technologies to enhance learning.",
+      icon: BookOpen
+    }, {
+      title: "Inclusivity",
+      description: "We create an inclusive environment that celebrates diversity and respects all individuals.",
+      icon: Users
+    }, {
+      title: "Leadership",
+      description: "We develop future leaders who will make positive contributions to society.",
+      icon: Target
+    }, {
+      title: "Compassion",
+      description: "We nurture empathy and kindness in our students and community.",
+      icon: Heart
+    }
+  ];
+
   return <Layout>
-      <section className="relative pt-20 pb-16 bg-gradient-to-b from-school-blue/5 to-white">
+      <section className="relative pt-20 pb-16 bg-gradient-to-b from-school-blue/10 to-white">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-school-blue/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 -left-40 w-96 h-96 bg-school-blue/5 rounded-full blur-3xl"></div>
@@ -61,7 +65,7 @@ const About = () => {
           }}>
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-tr from-school-blue/30 via-transparent to-transparent mix-blend-overlay"></div>
-                <img src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Indo Foundation School" className="w-full h-auto object-cover rounded-xl" />
+                <img src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sfGVufDB8fDB8fHww%3D&auto=format&fit=crop&w=800&q=60" alt="Indo Foundation School" className="w-full h-auto object-cover rounded-xl" />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-school-blue/20 rounded-full blur-2xl"></div>
             </motion.div>
@@ -101,7 +105,7 @@ const About = () => {
         </div>
       </section>
       
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto px-6">
           <motion.div className="max-w-3xl mx-auto text-center mb-16" initial={{
           opacity: 0,
@@ -143,7 +147,7 @@ const About = () => {
         </div>
       </section>
       
-      <section className="py-16 bg-gradient-to-b from-white to-school-blue/10">
+      <section className="py-16 bg-gradient-to-b from-indigo-50 to-school-blue/10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div className="glass-card p-8 md:p-10" initial={{
@@ -177,4 +181,5 @@ const About = () => {
       </section>
     </Layout>;
 };
+
 export default About;
