@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, GraduationCap, Palette, Dumbbell, Star, Music, Languages, Microscope, Award, Lightbulb, FileText, ChevronRight } from 'lucide-react';
@@ -112,7 +111,7 @@ const Academics = () => {
       {/* Hero Section with School Background Image */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-school-blue/40 to-white/90 overflow-hidden">
-          <div className="absolute top-0 right-0 w-full h-full opacity-30 bg-[url('/lovable-uploads/d0665058-ed0f-4ffe-b8a0-3aa06fb48e3a.png')] bg-cover bg-center"></div>
+          <div className="absolute top-0 right-0 w-full h-full opacity-30 bg-[url('/lovable-uploads/45235af6-ea07-49b1-bf9f-39f4f740c0d2.png')] bg-cover bg-center"></div>
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-school-blue/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 -left-40 w-96 h-96 bg-school-blue/5 rounded-full blur-3xl"></div>
           
@@ -220,7 +219,7 @@ const Academics = () => {
               >
                 <Card className="h-full overflow-hidden hover:shadow-xl transition-all duration-500 border-0 shadow-lg">
                   <div className={`h-24 ${program.color} relative overflow-hidden`}>
-                    <div className="absolute inset-0 opacity-20 bg-[url('/lovable-uploads/d0665058-ed0f-4ffe-b8a0-3aa06fb48e3a.png')] bg-cover bg-center"></div>
+                    <div className="absolute inset-0 opacity-20 bg-[url('/lovable-uploads/45235af6-ea07-49b1-bf9f-39f4f740c0d2.png')] bg-cover bg-center"></div>
                     <div className={`absolute -bottom-6 left-6 w-12 h-12 ${program.accentColor} rounded-lg shadow-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110`}>
                       <program.icon className="w-6 h-6 text-white" />
                     </div>
@@ -273,7 +272,7 @@ const Academics = () => {
             >
               <div className="relative shadow-2xl rounded-2xl overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-tr before:from-school-blue/30 before:via-transparent before:to-transparent before:z-10">
                 <img 
-                  src="/lovable-uploads/d0665058-ed0f-4ffe-b8a0-3aa06fb48e3a.png" 
+                  src="/lovable-uploads/45235af6-ea07-49b1-bf9f-39f4f740c0d2.png" 
                   alt="Classroom Learning" 
                   className="w-full h-auto object-cover rounded-2xl transform hover:scale-105 transition-transform duration-700"
                 />
@@ -388,7 +387,7 @@ const Academics = () => {
               >
                 <Card className="h-full border-0 shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 group">
                   <div className={`h-36 ${activity.color} relative overflow-hidden flex items-center justify-center`}>
-                    <div className="absolute inset-0 opacity-20 bg-[url('/lovable-uploads/d0665058-ed0f-4ffe-b8a0-3aa06fb48e3a.png')] bg-cover bg-center"></div>
+                    <div className="absolute inset-0 opacity-20 bg-[url('/lovable-uploads/45235af6-ea07-49b1-bf9f-39f4f740c0d2.png')] bg-cover bg-center"></div>
                     <div className="relative z-10 transform transition-all duration-500 group-hover:scale-125">
                       <activity.icon className="w-12 h-12 text-white drop-shadow-lg" />
                     </div>
@@ -470,3 +469,4 @@ const Academics = () => {
 };
 
 export default Academics;
+
