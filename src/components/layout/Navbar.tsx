@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, Facebook, Youtube, ChevronRight, Sparkles } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, Youtube, ChevronRight, Sparkles, BookOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -28,7 +28,7 @@ const Navbar = () => {
     { name: 'About', path: '/about', isBold: true },
     { name: 'Academics', path: '/academics', isBold: true },
     { name: 'Gallery', path: '/gallery', isBold: true },
-    { name: 'Enquire', path: '/enquire', isBold: true },
+    { name: 'Enquire', path: '/enquire', isBold: true, highlight: true },
   ];
 
   const socialLinks = [
@@ -40,9 +40,9 @@ const Navbar = () => {
   return (
     <nav 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 py-3 px-6 md:px-10 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 py-3 px-4 md:px-10 transition-all duration-500 w-full",
         scrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg" 
+          ? "bg-gradient-to-r from-white/95 to-blue-50/95 backdrop-blur-md shadow-md" 
           : "bg-transparent"
       )}
     >
@@ -54,12 +54,12 @@ const Navbar = () => {
           className="flex items-center"
         >
           <NavLink to="/" className="flex items-center space-x-3 group">
-            <div className="overflow-hidden rounded-full bg-gradient-to-br from-blue-100 via-blue-50 to-white p-1.5 shadow-sm group-hover:shadow-md transition-all duration-300 border border-blue-100">
+            <div className="overflow-hidden rounded-full bg-gradient-to-br from-blue-200 via-blue-50 to-white p-1.5 shadow-md group-hover:shadow-lg transition-all duration-300 border border-blue-100 group-hover:border-blue-200">
               <div className="relative">
                 <img 
                   src="/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png" 
                   alt="Indo Foundation School Logo" 
-                  className="h-12 w-12 object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-105"
+                  className="h-12 w-12 object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-110"
                 />
                 <motion.div 
                   className="absolute -top-1 -right-1"
@@ -67,13 +67,13 @@ const Navbar = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                 >
-                  <Sparkles size={12} className="text-school-blue fill-school-blue-light/40" />
+                  <Sparkles size={14} className="text-school-blue fill-school-blue-light/50" />
                 </motion.div>
               </div>
             </div>
             <div className="hidden md:block">
-              <h1 className="text-xl font-bold bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text text-transparent">Indo Foundation School</h1>
-              <p className="text-xs text-black/80">Excellence in Education</p>
+              <h1 className="text-xl font-bold bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text text-transparent transition-all duration-300 group-hover:from-school-blue-dark group-hover:to-school-blue">Indo Foundation School</h1>
+              <p className="text-xs text-black/80 group-hover:text-school-blue transition-colors duration-300">Excellence in Education</p>
             </div>
           </NavLink>
         </motion.div>
@@ -97,8 +97,9 @@ const Navbar = () => {
                   to={link.path}
                   className={({ isActive }) => 
                     cn(
-                      "relative px-4 py-2 rounded-full text-gray-700 hover:text-school-blue transition-colors duration-300 ease-in-out overflow-hidden",
-                      isActive && "text-school-blue font-medium bg-blue-50/80",
+                      "relative px-4 py-2 rounded-full text-gray-700 hover:text-school-blue transition-all duration-300 ease-in-out overflow-hidden",
+                      isActive ? "text-school-blue font-medium bg-blue-50/80" : "",
+                      link.highlight ? "bg-gradient-to-r from-school-blue to-school-blue-dark text-white hover:text-white shadow-sm hover:shadow-md" : "",
                       link.isBold && "font-bold",
                       link.className
                     )
@@ -106,9 +107,10 @@ const Navbar = () => {
                   onClick={closeMenu}
                 >
                   {({ isActive }) => (
-                    <span className="relative z-10">
+                    <span className="relative z-10 flex items-center gap-1">
+                      {link.path === '/academics' && <BookOpen size={16} className="inline" />}
                       {link.name}
-                      {isActive && (
+                      {isActive && !link.highlight && (
                         <motion.div 
                           className="absolute bottom-0 left-0 h-0.5 bg-school-blue w-full"
                           layoutId="underline"
@@ -130,7 +132,7 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.ariaLabel}
-                className="p-2 text-gray-600 hover:text-white hover:bg-school-blue rounded-full transition-all duration-300"
+                className="p-2 text-gray-600 hover:text-white hover:bg-school-blue rounded-full transition-all duration-300 hover:shadow-md"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -147,7 +149,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center">
           <motion.button
             onClick={toggleMenu}
-            className="text-gray-600 hover:text-school-blue focus-ring rounded-full p-2 hover:bg-blue-50 transition-all duration-300"
+            className="text-gray-600 hover:text-school-blue focus-ring rounded-full p-2.5 hover:bg-blue-50 transition-all duration-300"
             aria-expanded={isOpen}
             aria-label="Toggle menu"
             whileTap={{ scale: 0.9 }}
@@ -165,9 +167,9 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden absolute top-[68px] left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-blue-50"
+            className="md:hidden absolute top-[68px] left-0 right-0 bg-gradient-to-b from-white/95 to-blue-50/95 backdrop-blur-md shadow-lg border-t border-blue-100"
           >
-            <div className="flex flex-col p-4 space-y-1">
+            <div className="flex flex-col p-5 space-y-2">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
@@ -179,24 +181,30 @@ const Navbar = () => {
                     to={link.path}
                     className={({ isActive }) => 
                       cn(
-                        "p-3 rounded-md flex items-center justify-between", 
+                        "p-3 rounded-lg flex items-center justify-between", 
                         isActive 
                           ? "bg-blue-50 text-school-blue font-medium" 
-                          : "text-gray-700 hover:bg-blue-50/50 hover:text-school-blue",
+                          : link.highlight
+                            ? "bg-gradient-to-r from-school-blue to-school-blue-dark text-white"
+                            : "text-gray-700 hover:bg-blue-50/50 hover:text-school-blue",
                         link.isBold && "font-bold",
-                        link.className
+                        link.className,
+                        "transition-all duration-300 hover:shadow-sm"
                       )
                     }
                     onClick={closeMenu}
                   >
-                    <span>{link.name}</span>
-                    <ChevronRight size={16} className="text-gray-400" />
+                    <span className="flex items-center gap-2">
+                      {link.path === '/academics' && <BookOpen size={16} />}
+                      {link.name}
+                    </span>
+                    <ChevronRight size={16} className={link.highlight ? "text-white" : "text-gray-400"} />
                   </NavLink>
                 </motion.div>
               ))}
               
               <motion.div 
-                className="flex items-center justify-center space-x-6 pt-5 border-t border-gray-100 mt-2"
+                className="flex items-center justify-center space-x-6 pt-5 border-t border-blue-100 mt-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.3 }}
@@ -208,7 +216,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.ariaLabel}
-                    className="p-2.5 text-gray-600 hover:text-white bg-blue-50/50 hover:bg-school-blue rounded-full transition-all duration-300"
+                    className="p-3 text-gray-600 hover:text-white bg-blue-50/80 hover:bg-school-blue rounded-full transition-all duration-300 hover:shadow-md"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
