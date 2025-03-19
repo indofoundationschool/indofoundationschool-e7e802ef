@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, Users, Award, Target, Shield, Heart } from 'lucide-react';
@@ -150,7 +151,7 @@ const About = () => {
       <section className="py-16 bg-gradient-to-b from-indigo-50 to-school-blue/10">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div className="glass-card p-8 md:p-10" initial={{
+            <motion.div className="glass-card p-8 md:p-10 bg-gradient-to-br from-blue-100/90 to-indigo-100/90" initial={{
             opacity: 0,
             y: 20
           }} whileInView={{
