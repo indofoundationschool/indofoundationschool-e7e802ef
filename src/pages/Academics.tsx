@@ -279,11 +279,8 @@ const Academics = () => {
                 <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg z-20">
                   <Award className="w-6 h-6 text-school-blue" />
                 </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-school-blue/80 backdrop-blur-md p-5 rounded-full shadow-xl z-20 hover:bg-school-blue transition-colors duration-300">
-                  <Lightbulb className="w-8 h-8 text-white" />
-                </div>
+                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tr from-school-blue/20 to-school-blue-light/20 rounded-full blur-2xl"></div>
               </div>
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-tr from-school-blue/20 to-school-blue-light/20 rounded-full blur-2xl"></div>
             </motion.div>
             
             <motion.div 
@@ -469,4 +466,3 @@ const Academics = () => {
 };
 
 export default Academics;
-
