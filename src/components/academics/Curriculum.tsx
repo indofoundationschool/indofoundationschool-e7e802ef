@@ -1,19 +1,20 @@
-
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { BookOpen, Lightbulb, FileText, Award } from 'lucide-react';
-
 const Curriculum = () => {
-  return (
-    <section className="py-20 bg-gradient-to-b from-white to-school-blue/5">
+  return <section className="py-20 bg-gradient-to-b from-white to-school-blue/5">
       <div className="container mx-auto px-6">
-        <motion.div 
-          className="max-w-3xl mx-auto text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.div className="max-w-3xl mx-auto text-center mb-16" initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.6
+      }}>
           <div className="inline-block p-2 px-4 bg-school-blue/10 rounded-full text-school-blue font-medium mb-4">
             Curriculum
           </div>
@@ -26,19 +27,19 @@ const Curriculum = () => {
         </motion.div>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div 
-            className="relative order-2 md:order-1"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div className="relative order-2 md:order-1" initial={{
+          opacity: 0,
+          x: -20
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }}>
             <div className="relative shadow-2xl rounded-2xl overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-tr before:from-school-blue/30 before:via-transparent before:to-transparent before:z-10">
-              <img 
-                src="/lovable-uploads/db8487fa-d890-4244-9872-a9bbabd534d8.png" 
-                alt="Classroom Learning" 
-                className="w-full h-auto object-cover rounded-2xl transform hover:scale-105 transition-transform duration-700"
-              />
+              <img alt="Classroom Learning" className="w-full h-auto object-cover rounded-2xl transform hover:scale-105 transition-transform duration-700" src="/lovable-uploads/52b29db8-2b4f-4d4d-8aed-4f81a7f3e212.jpg" />
               <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg z-20">
                 <Award className="w-6 h-6 text-school-blue" />
               </div>
@@ -46,13 +47,17 @@ const Curriculum = () => {
             </div>
           </motion.div>
           
-          <motion.div 
-            className="space-y-8 order-1 md:order-2"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div className="space-y-8 order-1 md:order-2" initial={{
+          opacity: 0,
+          x: 20
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.8
+        }}>
             <div className="relative">
               <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <CardContent className="p-6">
@@ -112,8 +117,6 @@ const Curriculum = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Curriculum;
