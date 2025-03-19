@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -8,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const Enquire = () => {
@@ -38,10 +37,8 @@ const Enquire = () => {
     setSubmitting(true);
 
     try {
-      // Create mailto URL with form data in the body
       const subject = encodeURIComponent(`New Enquiry from ${formData.name}`);
       
-      // Format the body of the email
       let body = encodeURIComponent(
         `Name: ${formData.name}\n` +
         `Email: ${formData.email}\n` +
@@ -52,17 +49,13 @@ const Enquire = () => {
         `This enquiry was submitted through the school website.`
       );
       
-      // Create mailto link
       const mailtoLink = `mailto:indofoundationschool@gmail.com?subject=${subject}&body=${body}`;
       
-      // Open email client
       window.location.href = mailtoLink;
       
-      // Show success message
       setSubmitted(true);
       toast.success('Enquiry prepared for submission! Your email client has been opened.');
       
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -72,7 +65,6 @@ const Enquire = () => {
         message: '',
       });
       
-      // Reset submitted state after 3 seconds
       setTimeout(() => {
         setSubmitted(false);
       }, 3000);
@@ -83,6 +75,11 @@ const Enquire = () => {
       setSubmitting(false);
     }
   };
+
+  const schoolCoordinates = "28.883147,76.584833";
+  const schoolName = encodeURIComponent("Indo Foundation School, Shivaji Colony");
+  
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${schoolCoordinates}&query_place_id=${schoolName}`;
 
   const contactInfo = [
     {
@@ -107,7 +104,7 @@ const Enquire = () => {
       icon: MapPin,
       title: 'Address',
       details: 'Plot No 42/8, Shivaji Colony Rohtak, Haryana 124001',
-      link: 'https://maps.google.com',
+      link: mapUrl,
     },
   ];
 
@@ -165,9 +162,14 @@ const Enquire = () => {
                         <div className="bg-school-blue/10 p-3 rounded-lg mr-4">
                           <item.icon className="w-5 h-5 text-school-blue" />
                         </div>
-                        <div>
+                        <div className="flex-1">
                           <h3 className="font-medium text-gray-900">{item.title}</h3>
                           <p className="text-gray-600 mt-1">{item.details}</p>
+                          {item.icon === MapPin && (
+                            <span className="text-school-blue text-xs flex items-center mt-2">
+                              View on Google Maps <ExternalLink size={12} className="ml-1" />
+                            </span>
+                          )}
                         </div>
                       </a>
                     </Card>
@@ -349,14 +351,14 @@ const Enquire = () => {
             
             <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55472.65748348536!2d76.56039715820313!3d28.883147299999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d85a7aa048e87%3A0xeef6d24e70ff98f!2sRohtak%2C%20Haryana!5e0!3m2!1sen!2sin!4v1658475645781!5m2!1sen!2sin" 
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3494.979124046534!2d76.58225367636772!3d28.883147275349302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d86073f8fc095%3A0x4a0d12fe3d8f6bd8!2sIndo%20Foundation%20School!5e0!3m2!1sen!2sin!4v1698500645781!5m2!1sen!2sin`}
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="School Location"
+                title="Indo Foundation School Location"
               ></iframe>
             </div>
           </motion.div>
