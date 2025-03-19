@@ -1,7 +1,8 @@
 
-import { X } from 'lucide-react';
+import { X, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GalleryImage } from '@/pages/Gallery';
+import { Button } from '@/components/ui/button';
 
 interface LightboxProps {
   image: GalleryImage;
@@ -9,6 +10,16 @@ interface LightboxProps {
 }
 
 export const Lightbox = ({ image, onClose }: LightboxProps) => {
+  const handleDownload = () => {
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = image.src;
+    link.download = `${image.alt.replace(/\s+/g, '-').toLowerCase()}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -25,18 +36,31 @@ export const Lightbox = ({ image, onClose }: LightboxProps) => {
           className="relative max-w-5xl w-full max-h-[90vh] rounded-lg overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-          >
-            <X size={24} />
-          </button>
+          <div className="absolute top-4 right-4 z-10 flex space-x-2">
+            <Button
+              onClick={handleDownload}
+              size="icon"
+              variant="secondary"
+              className="rounded-full bg-white/20 text-white hover:bg-white/40 transition-colors"
+            >
+              <Download size={20} />
+            </Button>
+            <Button
+              onClick={onClose}
+              size="icon"
+              variant="secondary"
+              className="rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+            >
+              <X size={20} />
+            </Button>
+          </div>
           
           <div className="h-full w-full">
             <img
               src={image.src}
               alt={image.alt}
               className="w-full h-full object-contain"
+              loading="eager"
             />
           </div>
           

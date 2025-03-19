@@ -1,9 +1,11 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
 import { motion } from 'framer-motion';
 import UploadSection from '@/components/gallery/UploadSection';
 import GalleryGrid from '@/components/gallery/GalleryGrid';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { toast } from 'sonner';
 
 export type GalleryImage = {
   id: string;
@@ -15,6 +17,7 @@ export type GalleryImage = {
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [isLoading, setIsLoading] = useState(true);
   
   const initialImages: GalleryImage[] = [
     {
@@ -56,6 +59,15 @@ const Gallery = () => {
 
   const [images, setImages] = useState<GalleryImage[]>(initialImages);
 
+  // Simulate loading state and show toast when gallery is loaded
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      toast.success('Gallery loaded successfully!');
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleImageUpload = (newImage: GalleryImage) => {
     setImages(prevImages => [...prevImages, newImage]);
   };
@@ -81,29 +93,35 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        <Tabs defaultValue="all" onValueChange={setSelectedCategory} className="mb-8">
-          <div className="flex justify-center">
-            <TabsList className="bg-blue-50/50 p-1 mb-6">
-              {categories.map(category => (
-                <TabsTrigger 
-                  key={category} 
-                  value={category}
-                  className="capitalize data-[state=active]:bg-school-blue data-[state=active]:text-white"
-                >
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-school-blue"></div>
           </div>
-          
-          {categories.map(category => (
-            <TabsContent key={category} value={category}>
-              <GalleryGrid 
-                images={filteredImages}
-              />
-            </TabsContent>
-          ))}
-        </Tabs>
+        ) : (
+          <Tabs defaultValue="all" onValueChange={setSelectedCategory} className="mb-8">
+            <div className="flex justify-center">
+              <TabsList className="bg-blue-50/50 p-1 mb-6">
+                {categories.map(category => (
+                  <TabsTrigger 
+                    key={category} 
+                    value={category}
+                    className="capitalize data-[state=active]:bg-school-blue data-[state=active]:text-white"
+                  >
+                    {category}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
+            
+            {categories.map(category => (
+              <TabsContent key={category} value={category}>
+                <GalleryGrid 
+                  images={filteredImages}
+                />
+              </TabsContent>
+            ))}
+          </Tabs>
+        )}
 
         <UploadSection onImageUpload={handleImageUpload} />
       </div>
