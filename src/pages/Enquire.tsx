@@ -110,7 +110,7 @@ const Enquire = () => {
           <div className="text-xs mt-1 text-school-blue">28°52'59.3"N 76°35'05.4"E</div>
         </>
       ),
-      link: mapUrl,
+      link: `https://www.google.com/maps?q=${schoolCoordinates}&z=18`,
     },
   ];
 

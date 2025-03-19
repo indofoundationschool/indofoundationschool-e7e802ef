@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Map } from 'lucide-react';
+import { ExternalLink, Map, Navigation } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 type MapSectionProps = {
@@ -35,7 +35,7 @@ const MapSection: React.FC<MapSectionProps> = ({ coordinates, schoolName, mapUrl
               We invite you to visit our campus and experience our facilities firsthand. Our staff will be happy to guide you through our programs and answer any questions you may have.
             </p>
             
-            <div className="flex justify-center gap-4 mb-8">
+            <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Button 
                 className="bg-school-blue hover:bg-school-blue-dark"
                 onClick={() => window.open(exactMapUrl, '_blank')}
@@ -48,14 +48,22 @@ const MapSection: React.FC<MapSectionProps> = ({ coordinates, schoolName, mapUrl
                 variant="outline"
                 onClick={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${decimalCoordinates}`, '_blank')}
               >
-                <ExternalLink size={16} className="mr-2" />
+                <Navigation size={16} className="mr-2" />
                 Get Directions
               </Button>
             </div>
             
-            <p className="text-sm text-gray-500 mb-6">
-              Coordinates: 28°52'59.3"N 76°35'05.4"E
-            </p>
+            <div className="max-w-md mx-auto border border-school-blue/20 rounded-lg p-3 mb-6 bg-school-blue/5">
+              <p className="font-medium text-gray-800">
+                Indo Foundation School
+              </p>
+              <p className="text-gray-600 mb-2">
+                Plot No 42/8, Shivaji Colony Rohtak-124001 Haryana
+              </p>
+              <p className="text-sm text-school-blue font-medium">
+                Coordinates: 28°52'59.3"N 76°35'05.4"E
+              </p>
+            </div>
           </div>
           
           <div className="aspect-video rounded-xl overflow-hidden shadow-lg relative">
