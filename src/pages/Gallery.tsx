@@ -1,10 +1,8 @@
 
 import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import GalleryGrid from '@/components/gallery/GalleryGrid';
-import UploadSection from '@/components/gallery/UploadSection';
 import { motion } from 'framer-motion';
+import UploadSection from '@/components/gallery/UploadSection';
 
 export type GalleryImage = {
   id: string;
@@ -15,64 +13,7 @@ export type GalleryImage = {
 };
 
 const Gallery = () => {
-  const [images, setImages] = useState<GalleryImage[]>([
-    {
-      id: '1',
-      src: '/lovable-uploads/aaea342f-f63d-499a-a90e-1e2ff9787dd2.png',
-      alt: 'Awards Ceremony - Group 1',
-      category: 'events',
-      description: 'Students receiving achievement certificates during the annual awards ceremony.'
-    },
-    {
-      id: '2',
-      src: '/lovable-uploads/a16ec3c6-ee03-4c7a-8695-2e23333c7bf5.png',
-      alt: 'Awards Ceremony - Group 2',
-      category: 'events',
-      description: 'Another group of students proudly displaying their achievement certificates.'
-    },
-    {
-      id: '3',
-      src: '/lovable-uploads/aa8ed1bc-781f-4733-9f8b-4dc8e6c4c2cc.png',
-      alt: 'Natural Environment',
-      category: 'campus',
-      description: 'Students and teachers enjoying our school\'s natural and friendly environment.'
-    },
-    {
-      id: '4',
-      src: '/lovable-uploads/e1e00e14-8566-4dd9-bc82-b96ea8692097.png',
-      alt: 'Cultural Program',
-      category: 'events',
-      description: 'Students and teachers during a special cultural program at the school.'
-    },
-    {
-      id: '5',
-      src: '/lovable-uploads/824368d2-a149-46b3-8505-abd6d3f5b0b5.png',
-      alt: 'Sports Medal Winners',
-      category: 'sports',
-      description: 'Students and teachers with medals won during the school sports day.'
-    },
-    {
-      id: '6',
-      src: '/lovable-uploads/beb41daf-08a9-484e-922a-10804c40d2b5.png',
-      alt: 'Sports Medal Winners',
-      category: 'sports',
-      description: 'Students with medals received during the inter-school sports competition.'
-    },
-    {
-      id: '7',
-      src: '/lovable-uploads/d4a120f0-8b39-4f13-b850-c2c7bf0dccc6.png',
-      alt: 'Cultural Dance Performance',
-      category: 'events',
-      description: 'Students dressed in traditional attire for a cultural dance performance.'
-    },
-    {
-      id: '8',
-      src: '/lovable-uploads/eed6c40e-a788-43fb-8b46-c572df78bb87.png',
-      alt: 'Foundation Day Celebration',
-      category: 'events',
-      description: 'Students performing a cultural program during the 47th Foundation Day celebration.'
-    }
-  ]);
+  const [images, setImages] = useState<GalleryImage[]>([]);
 
   const handleImageUpload = (newImage: GalleryImage) => {
     setImages(prevImages => [...prevImages, newImage]);
@@ -95,38 +36,10 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        {images.length === 0 ? (
-          <div className="text-center py-16 bg-gray-50 rounded-lg">
-            <p className="text-xl text-gray-500 mb-2">No images in the gallery</p>
-            <p className="text-gray-400">Check back soon for updates to our school gallery.</p>
-          </div>
-        ) : (
-          <Tabs defaultValue="all" className="w-full mb-10">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid grid-flow-col auto-cols-max gap-2">
-                {categories.map((category) => (
-                  <TabsTrigger 
-                    key={category} 
-                    value={category}
-                    className="capitalize px-6"
-                  >
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-
-            {categories.map((category) => (
-              <TabsContent key={category} value={category} className="mt-6">
-                <GalleryGrid 
-                  images={category === 'all' 
-                    ? images 
-                    : images.filter(img => img.category === category)} 
-                />
-              </TabsContent>
-            ))}
-          </Tabs>
-        )}
+        <div className="text-center py-16 bg-gray-50 rounded-lg">
+          <p className="text-xl text-gray-500 mb-2">No images in the gallery</p>
+          <p className="text-gray-400">Check back soon for updates to our school gallery.</p>
+        </div>
 
         <UploadSection onImageUpload={handleImageUpload} />
       </div>
