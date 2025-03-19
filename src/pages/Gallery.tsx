@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import { motion } from 'framer-motion';
@@ -45,6 +44,13 @@ const Gallery = () => {
       alt: '47th Foundation Day Celebration',
       category: 'events',
       description: 'Students in colorful traditional attire performing during the 47th Foundation Day celebrations.'
+    },
+    {
+      id: '5',
+      src: '/lovable-uploads/IMG_4943.jpeg',
+      alt: 'School Assembly Session',
+      category: 'school',
+      description: 'Students gathered for the morning assembly session on the school grounds.'
     }
   ];
 
