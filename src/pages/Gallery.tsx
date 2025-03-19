@@ -34,10 +34,10 @@ const Gallery = () => {
     },
     {
       id: '3',
-      src: '/lovable-uploads/483cbb0d-6c27-44f6-bf55-e88913bbe6bd.png',
-      alt: 'Yoga Session',
-      category: 'activities',
-      description: 'Students participating in a yoga and physical wellness session at school.'
+      src: '/lovable-uploads/764e3d8d-e8b6-4acb-ac3a-4782cff6076a.png',
+      alt: 'Foundation Day Cultural Program',
+      category: 'events',
+      description: 'Students performing in traditional attire during the school foundation day celebrations.'
     }
   ];
 
