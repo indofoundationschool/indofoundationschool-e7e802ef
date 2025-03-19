@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, Users, Award, Target, Shield, Heart } from 'lucide-react';
@@ -67,7 +66,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-school-blue/30 via-transparent to-transparent mix-blend-overlay"></div>
                 <img 
                   src="https://images.unsplash.com/photo-1627556704290-2b1f5853ff78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2Nob29sJTIwYnVpbGRpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" 
-                  alt="Indo Foundation School Building" 
+                  alt="Indo Foundation School" 
                   className="w-full h-auto object-cover rounded-xl"
                 />
               </div>
@@ -178,3 +177,4 @@ const About = () => {
 };
 
 export default About;
+
