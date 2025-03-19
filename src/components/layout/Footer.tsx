@@ -1,4 +1,3 @@
-
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin, Heart, Sparkles, Award, Flower } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Separator } from "@/components/ui/separator";
@@ -60,11 +59,11 @@ const Footer = () => {
             <motion.div className="space-y-5" variants={item}>
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <div className="overflow-hidden rounded-full bg-white p-2 shadow-md border border-blue-100 transition-all duration-300 group-hover:shadow-xl">
+                  <div className="overflow-hidden rounded-full bg-transparent p-2 shadow-md border border-blue-100 transition-all duration-300 group-hover:shadow-xl">
                     <img 
                       src="/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png" 
                       alt="Indo Foundation School Logo" 
-                      className="h-16 w-16 object-contain mix-blend-multiply transition-all duration-300 group-hover:scale-105"
+                      className="h-16 w-16 object-contain mix-blend-multiply isolate transition-all duration-300 group-hover:scale-105"
                     />
                   </div>
                   <motion.div 
