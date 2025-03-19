@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Map } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 type MapSectionProps = {
@@ -11,6 +11,14 @@ type MapSectionProps = {
 };
 
 const MapSection: React.FC<MapSectionProps> = ({ coordinates, schoolName, mapUrl }) => {
+  // Convert DMS coordinates to decimal for embedding
+  // The coordinates 28°52'59.3"N 76°35'05.4"E in decimal are approximately:
+  // 28.883139, 76.584833
+  const decimalCoordinates = "28.883139,76.584833";
+  
+  // Direct Google Maps URL with the exact coordinates
+  const exactMapUrl = `https://www.google.com/maps?q=${decimalCoordinates}&z=18`;
+  
   return (
     <section className="py-16 bg-gradient-to-b from-white to-school-blue/10">
       <div className="container mx-auto px-6">
@@ -27,18 +35,32 @@ const MapSection: React.FC<MapSectionProps> = ({ coordinates, schoolName, mapUrl
               We invite you to visit our campus and experience our facilities firsthand. Our staff will be happy to guide you through our programs and answer any questions you may have.
             </p>
             
-            <Button 
-              className="mb-8 bg-school-blue hover:bg-school-blue-dark"
-              onClick={() => window.open(mapUrl, '_blank')}
-            >
-              <ExternalLink size={16} className="mr-2" />
-              Open in Google Maps
-            </Button>
+            <div className="flex justify-center gap-4 mb-8">
+              <Button 
+                className="bg-school-blue hover:bg-school-blue-dark"
+                onClick={() => window.open(exactMapUrl, '_blank')}
+              >
+                <Map size={16} className="mr-2" />
+                View Exact Location
+              </Button>
+              
+              <Button 
+                variant="outline"
+                onClick={() => window.open(`https://www.google.com/maps/dir/?api=1&destination=${decimalCoordinates}`, '_blank')}
+              >
+                <ExternalLink size={16} className="mr-2" />
+                Get Directions
+              </Button>
+            </div>
+            
+            <p className="text-sm text-gray-500 mb-6">
+              Coordinates: 28°52'59.3"N 76°35'05.4"E
+            </p>
           </div>
           
           <div className="aspect-video rounded-xl overflow-hidden shadow-lg relative">
             <iframe 
-              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3494.979124046534!2d76.58225367636772!3d28.883147275349302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d86073f8fc095%3A0x4a0d12fe3d8f6bd8!2sIndo%20Foundation%20School!5e0!3m2!1sen!2sin!4v1698500645781!5m2!1sen!2sin`}
+              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d500!2d76.584833!3d28.883139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDUyJzU5LjMiTiA3NsKwMzUnMDUuNCJF!5e0!3m2!1sen!2sin!4v1698500645781!5m2!1sen!2sin`}
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 

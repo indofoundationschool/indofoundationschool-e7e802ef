@@ -77,10 +77,10 @@ const Enquire = () => {
     }
   };
 
-  const schoolCoordinates = "28.883147,76.584833";
+  const schoolCoordinates = "28.883139,76.584833";
   const schoolName = encodeURIComponent("Indo Foundation School, Shivaji Colony");
   
-  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${schoolCoordinates}&query_place_id=${schoolName}`;
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${schoolCoordinates}`;
 
   const contactInfo = [
     {
@@ -104,7 +104,12 @@ const Enquire = () => {
     {
       icon: MapPin,
       title: 'Address',
-      details: 'Plot No 42/8, Shivaji Colony Rohtak, Haryana 124001',
+      details: (
+        <>
+          Plot No 42/8, Shivaji Colony Rohtak, Haryana 124001
+          <div className="text-xs mt-1 text-school-blue">28°52'59.3"N 76°35'05.4"E</div>
+        </>
+      ),
       link: mapUrl,
     },
   ];
