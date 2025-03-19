@@ -1,3 +1,4 @@
+
 import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -7,9 +8,10 @@ type SocialLinkProps = {
   ariaLabel: string;
   index?: number;
   isMobile?: boolean;
+  color: string;
 };
 
-const SocialLink = ({ icon: Icon, url, ariaLabel, index = 0, isMobile = false }: SocialLinkProps) => {
+const SocialLink = ({ icon: Icon, url, ariaLabel, index = 0, isMobile = false, color }: SocialLinkProps) => {
   return (
     <motion.a 
       href={url}
@@ -18,9 +20,13 @@ const SocialLink = ({ icon: Icon, url, ariaLabel, index = 0, isMobile = false }:
       aria-label={ariaLabel}
       className={`${
         isMobile 
-          ? 'p-3 text-gray-700 hover:text-white bg-gradient-to-r from-blue-50 to-blue-100 hover:from-school-blue hover:to-school-blue-dark rounded-full' 
-          : 'p-2 text-gray-700 hover:text-white hover:from-school-blue hover:to-school-blue-dark hover:bg-gradient-to-r rounded-full'
-      } transition-all duration-300 hover:shadow-md flex items-center justify-center`}
+          ? 'p-3 text-white bg-gradient-to-r rounded-full transition-transform' 
+          : 'p-2 text-white rounded-full transition-transform'
+      } transition-all duration-300 hover:shadow-lg flex items-center justify-center`}
+      style={{ 
+        backgroundColor: color,
+        transform: 'scale(1)',
+      }}
       whileHover={{ scale: 1.1, rotate: 5 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, scale: 0.8 }}
@@ -33,9 +39,24 @@ const SocialLink = ({ icon: Icon, url, ariaLabel, index = 0, isMobile = false }:
 };
 
 export const socialLinks = [
-  { icon: Instagram, url: "https://www.instagram.com/indofoundationschool?igsh=czV4OXd6dXVkb3Vi&utm_source=qr", ariaLabel: "Instagram" },
-  { icon: Facebook, url: "https://facebook.com", ariaLabel: "Facebook" },
-  { icon: Youtube, url: "https://www.youtube.com/@indofoundationschool", ariaLabel: "YouTube" },
+  { 
+    icon: Instagram, 
+    url: "https://www.instagram.com/indofoundationschool?igsh=czV4OXd6dXVkb3Vi&utm_source=qr", 
+    ariaLabel: "Instagram",
+    color: "#E1306C" // Instagram brand color
+  },
+  { 
+    icon: Facebook, 
+    url: "https://facebook.com", 
+    ariaLabel: "Facebook",
+    color: "#1877F2" // Facebook brand color
+  },
+  { 
+    icon: Youtube, 
+    url: "https://www.youtube.com/@indofoundationschool", 
+    ariaLabel: "YouTube",
+    color: "#FF0000" // YouTube brand color
+  },
 ];
 
 const SocialLinks = ({ isMobile = false }: { isMobile?: boolean }) => {
@@ -58,6 +79,7 @@ const SocialLinks = ({ isMobile = false }: { isMobile?: boolean }) => {
           ariaLabel={social.ariaLabel}
           index={index}
           isMobile={isMobile}
+          color={social.color}
         />
       ))}
     </motion.div>
