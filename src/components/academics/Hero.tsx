@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-20 overflow-hidden w-full">
       <div className="absolute inset-0 bg-gradient-to-b from-school-blue/40 to-white/90 overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-full opacity-20 bg-[url('/lovable-uploads/db8487fa-d890-4244-9872-a9bbabd534d8.png')] bg-cover bg-center"></div>
         <div className="absolute -top-20 -right-20 w-80 h-80 bg-school-blue/10 rounded-full blur-3xl"></div>
