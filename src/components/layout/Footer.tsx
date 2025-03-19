@@ -29,7 +29,6 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden">
-      {/* Top wave SVG */}
       <div className="absolute top-0 left-0 w-full">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
           <path fill="#f3f4f6" fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,117.3C672,139,768,213,864,218.7C960,224,1056,160,1152,133.3C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -37,7 +36,6 @@ const Footer = () => {
       </div>
       
       <div className="bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 pt-24 pb-8 relative">
-        {/* Decorative elements */}
         <div className="absolute top-10 right-10 animate-float opacity-30">
           <Sparkles size={50} className="text-school-blue" />
         </div>
@@ -59,7 +57,7 @@ const Footer = () => {
             <motion.div className="space-y-5" variants={item}>
               <div className="flex items-center space-x-3 group">
                 <div className="relative">
-                  <div className="overflow-hidden rounded-full bg-transparent p-2 shadow-md border border-blue-100 transition-all duration-300 group-hover:shadow-xl">
+                  <div className="overflow-hidden rounded-full bg-gradient-to-br from-white via-blue-50 to-blue-100 p-2 shadow-md border border-blue-100 transition-all duration-300 group-hover:shadow-xl">
                     <img 
                       src="/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png" 
                       alt="Indo Foundation School Logo" 
