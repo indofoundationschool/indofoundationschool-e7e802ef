@@ -2,16 +2,11 @@ import { Instagram, Facebook, Youtube, Mail, Phone, MapPin, Heart, Sparkles, Awa
 import { Link } from 'react-router-dom';
 import { Separator } from "@/components/ui/separator";
 import { motion } from 'framer-motion';
+import { socialLinks } from './navbar/SocialLinks';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
-  const socialLinks = [
-    { icon: Instagram, url: "https://www.instagram.com/indofoundationschool?igsh=czV4OXd6dXVkb3Vi&utm_source=qr", name: "Instagram" },
-    { icon: Facebook, url: "https://facebook.com", name: "Facebook" },
-    { icon: Youtube, url: "https://www.youtube.com/@indofoundationschool", name: "YouTube" },
-  ];
-
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -87,8 +82,9 @@ const Footer = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2.5 bg-white rounded-full text-school-blue hover:bg-school-blue hover:text-white transition-all duration-300 shadow-sm hover:shadow-md"
-                    aria-label={social.name}
+                    className="p-2.5 rounded-full text-white transition-all duration-300 shadow-sm hover:shadow-md"
+                    style={{ backgroundColor: social.color }}
+                    aria-label={social.ariaLabel}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
