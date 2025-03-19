@@ -69,7 +69,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <h3 className="font-bold bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text text-transparent text-lg">Indo Foundation School</h3>
-                  <p className="text-xs text-black/70">Excellence in Education</p>
+                  <p className="text-xs font-semibold text-black/70">Excellence in Education</p>
                 </div>
               </div>
               <p className="text-gray-700 text-sm leading-relaxed">
@@ -235,3 +235,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

@@ -33,7 +33,7 @@ const Logo = () => {
         <div className="hidden md:block">
           <h1 className="text-xl font-bold bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text text-transparent transition-all duration-300 group-hover:from-school-blue-dark group-hover:to-school-blue">Indo Foundation School</h1>
           <motion.p 
-            className="text-xs text-black/80 group-hover:text-school-blue transition-colors duration-300"
+            className="text-xs font-semibold text-black/80 group-hover:text-school-blue transition-colors duration-300"
             initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
