@@ -1,5 +1,5 @@
 
-import { Instagram, Facebook, Youtube } from 'lucide-react';
+import { Instagram, Facebook, Youtube, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 type SocialLinkProps = {
@@ -17,7 +17,11 @@ const SocialLink = ({ icon: Icon, url, ariaLabel, index = 0, isMobile = false }:
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
-      className={`${isMobile ? 'p-3 text-gray-600 hover:text-white bg-blue-50/80 hover:bg-school-blue rounded-full' : 'p-2 text-gray-600 hover:text-white hover:bg-school-blue rounded-full'} transition-all duration-300 hover:shadow-md`}
+      className={`${
+        isMobile 
+          ? 'p-3 text-gray-700 hover:text-white bg-gradient-to-r from-blue-50 to-blue-100 hover:from-school-blue hover:to-school-blue-dark rounded-full' 
+          : 'p-2 text-gray-700 hover:text-white hover:from-school-blue hover:to-school-blue-dark hover:bg-gradient-to-r rounded-full'
+      } transition-all duration-300 hover:shadow-md flex items-center justify-center`}
       whileHover={{ scale: 1.1, rotate: 5 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, scale: 0.8 }}
@@ -33,12 +37,13 @@ export const socialLinks = [
   { icon: Instagram, url: "https://www.instagram.com/indofoundationschool?igsh=czV4OXd6dXVkb3Vi&utm_source=qr", ariaLabel: "Instagram" },
   { icon: Facebook, url: "https://facebook.com", ariaLabel: "Facebook" },
   { icon: Youtube, url: "https://www.youtube.com/@indofoundationschool", ariaLabel: "YouTube" },
+  { icon: Twitter, url: "https://twitter.com", ariaLabel: "Twitter" },
 ];
 
 const SocialLinks = ({ isMobile = false }: { isMobile?: boolean }) => {
   const containerClass = isMobile 
-    ? "flex items-center justify-center space-x-6 pt-5 border-t border-blue-100 mt-2"
-    : "flex items-center space-x-2 ml-4";
+    ? "flex items-center justify-center space-x-6 pt-5 border-t border-blue-100 mt-5"
+    : "flex items-center space-x-3 ml-6";
 
   return (
     <motion.div 
