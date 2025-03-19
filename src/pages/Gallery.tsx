@@ -1,9 +1,7 @@
-
 import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GalleryGrid from '@/components/gallery/GalleryGrid';
-import UploadSection from '@/components/gallery/UploadSection';
 import { motion } from 'framer-motion';
 
 export type GalleryImage = {
@@ -97,10 +95,6 @@ const Gallery = () => {
 
   const categories = ['all', ...new Set(images.map(img => img.category))];
 
-  const addNewImage = (newImage: GalleryImage) => {
-    setImages(prev => [...prev, { ...newImage, id: Date.now().toString() }]);
-  };
-
   return (
     <Layout>
       <div className="container max-w-7xl mx-auto px-4 py-10">
@@ -141,8 +135,6 @@ const Gallery = () => {
             </TabsContent>
           ))}
         </Tabs>
-
-        <UploadSection onImageUpload={addNewImage} />
       </div>
     </Layout>
   );
