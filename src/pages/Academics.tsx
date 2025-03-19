@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, GraduationCap, Palette, Dumbbell, Star, Music, Languages, Microscope, Award, Lightbulb, FileText, ChevronRight } from 'lucide-react';
@@ -116,7 +115,6 @@ const Academics = () => {
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-school-blue/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 -left-40 w-96 h-96 bg-school-blue/5 rounded-full blur-3xl"></div>
           
-          {/* Floating Elements */}
           <motion.div 
             className="absolute top-1/4 left-1/3 w-8 h-8 rounded-full bg-amber-400/30 backdrop-blur-sm"
             animate={{ 
@@ -178,13 +176,6 @@ const Academics = () => {
                 className="bg-school-blue hover:bg-school-blue-dark transition-all duration-300 gap-2 shadow-lg hover:shadow-xl"
               >
                 Explore Programs <ChevronRight className="w-4 h-4" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-school-blue text-school-blue hover:bg-school-blue/10 transition-all duration-300"
-              >
-                Download Brochure
               </Button>
             </div>
           </motion.div>
