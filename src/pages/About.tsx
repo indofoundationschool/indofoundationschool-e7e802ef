@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, Users, Award, Target, Shield, Heart } from 'lucide-react';
@@ -151,12 +152,14 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                <div className="relative w-full md:w-auto md:flex-shrink-0">
-                  <img 
-                    src="/lovable-uploads/eb51e1ea-1b39-4133-80dd-9050e028301e.png" 
-                    alt="Students celebrating graduation by tossing caps" 
-                    className="w-full md:w-auto md:h-60 object-cover rounded-lg shadow-md"
-                  />
+                <div className="relative w-full md:w-auto md:flex-shrink-0 flex justify-center items-center">
+                  <div className="w-40 h-40 md:w-48 md:h-48 relative">
+                    <img 
+                      src="/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png" 
+                      alt="Indo Foundation School Logo" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Our School Motto</h3>
