@@ -38,6 +38,13 @@ const Gallery = () => {
       alt: 'Foundation Day Cultural Program',
       category: 'events',
       description: 'Students performing in traditional attire during the school foundation day celebrations.'
+    },
+    {
+      id: '4',
+      src: '/lovable-uploads/d0665058-ed0f-4ffe-b8a0-3aa06fb48e3a.png',
+      alt: '47th Foundation Day Celebration',
+      category: 'events',
+      description: 'Students in colorful traditional attire performing during the 47th Foundation Day celebrations.'
     }
   ];
 
