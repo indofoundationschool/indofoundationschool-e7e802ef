@@ -64,6 +64,13 @@ const Gallery = () => {
       alt: 'Cultural Dance Performance',
       category: 'events',
       description: 'Students dressed in traditional attire for a cultural dance performance.'
+    },
+    {
+      id: '8',
+      src: '/lovable-uploads/eed6c40e-a788-43fb-8b46-c572df78bb87.png',
+      alt: 'Foundation Day Celebration',
+      category: 'events',
+      description: 'Students performing a cultural program during the 47th Foundation Day celebration.'
     }
   ]);
 
