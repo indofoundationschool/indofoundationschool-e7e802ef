@@ -85,6 +85,13 @@ const Gallery = () => {
       alt: 'School Administration',
       category: 'school',
       description: 'Administrative staff checking student records at the school office'
+    },
+    {
+      id: '11',
+      src: '/lovable-uploads/2be7ea24-6d32-4ddb-b6aa-576b3f56c45e.png',
+      alt: 'EVS Quiz Competition',
+      category: 'activities',
+      description: 'Students and teachers gathered for the EVS Quiz competition at the school'
     }
   ]);
 
