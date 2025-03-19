@@ -165,7 +165,7 @@ const About = () => {
               <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
                 <div className="relative w-full md:w-auto md:flex-shrink-0 flex justify-center items-center">
                   <div className="w-40 h-40 md:w-48 md:h-48 relative">
-                    <img alt="Indo Foundation School Logo" className="w-full h-full object-contain" src="/lovable-uploads/5704d268-92a8-4704-9601-2f9cab7af2f5.jpg" />
+                    <img alt="Indo Foundation School Logo" className="w-full h-full object-contain mix-blend-multiply" src="/lovable-uploads/5704d268-92a8-4704-9601-2f9cab7af2f5.jpg" />
                   </div>
                 </div>
                 <div>
