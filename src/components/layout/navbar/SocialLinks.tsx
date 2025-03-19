@@ -1,5 +1,4 @@
-
-import { Instagram, Facebook, Youtube, Twitter } from 'lucide-react';
+import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 type SocialLinkProps = {
@@ -37,7 +36,6 @@ export const socialLinks = [
   { icon: Instagram, url: "https://www.instagram.com/indofoundationschool?igsh=czV4OXd6dXVkb3Vi&utm_source=qr", ariaLabel: "Instagram" },
   { icon: Facebook, url: "https://facebook.com", ariaLabel: "Facebook" },
   { icon: Youtube, url: "https://www.youtube.com/@indofoundationschool", ariaLabel: "YouTube" },
-  { icon: Twitter, url: "https://twitter.com", ariaLabel: "Twitter" },
 ];
 
 const SocialLinks = ({ isMobile = false }: { isMobile?: boolean }) => {
