@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, Users, Award, Target, Shield, Heart } from 'lucide-react';
@@ -67,8 +66,8 @@ const About = () => {
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-tr from-school-blue/30 via-transparent to-transparent mix-blend-overlay"></div>
                 <img 
-                  src="/lovable-uploads/21cc8fe2-cd98-4e3b-ad8c-a6e77f82ee16.png" 
-                  alt="Indo Foundation School students and teachers" 
+                  src="/lovable-uploads/d80d2fa3-0494-48a8-865e-5f224454dd59.png" 
+                  alt="Indo Foundation School award ceremony" 
                   className="w-full h-auto object-cover rounded-xl" 
                 />
               </div>
