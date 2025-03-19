@@ -54,7 +54,7 @@ const Navbar = () => {
           className="flex items-center"
         >
           <NavLink to="/" className="flex items-center space-x-3 group">
-            <div className="overflow-hidden rounded-full bg-gradient-to-r from-blue-50 to-white p-1.5 shadow-sm group-hover:shadow-md transition-all duration-300 border border-blue-100">
+            <div className="overflow-hidden rounded-full bg-gradient-to-br from-blue-100 via-blue-50 to-white p-1.5 shadow-sm group-hover:shadow-md transition-all duration-300 border border-blue-100">
               <div className="relative">
                 <img 
                   src="/lovable-uploads/d2958176-f72d-486f-b3fa-0e06d1b426da.png" 
