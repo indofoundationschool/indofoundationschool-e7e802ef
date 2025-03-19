@@ -111,9 +111,9 @@ const HeroSection = () => {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <Badge 
-                className="bg-gradient-to-r from-school-blue/40 to-school-blue-light/40 text-school-blue-dark border-0 px-4 py-2 rounded-full text-sm font-medium inline-flex items-center gap-1.5 hover:from-school-blue/50 hover:to-school-blue-light/50 backdrop-blur-sm shadow-md"
+                className="bg-gradient-to-r from-school-blue-dark/50 to-school-blue/50 text-white border-0 px-4 py-2 rounded-full text-sm font-medium inline-flex items-center gap-1.5 hover:from-school-blue-dark/60 hover:to-school-blue/60 backdrop-blur-sm shadow-md"
               >
-                <Sparkles size={16} className="text-school-blue-dark" />
+                <Sparkles size={16} className="text-white" />
                 <span>Nurturing Future Leaders</span>
               </Badge>
             </motion.div>
