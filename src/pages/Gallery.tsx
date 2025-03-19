@@ -46,10 +46,10 @@ const Gallery = () => {
     },
     {
       id: '5',
-      src: '/lovable-uploads/0e849d91-78b5-4fcd-b872-ec6e3fc05453.png',
-      alt: 'Sports Meet',
+      src: '/lovable-uploads/824368d2-a149-46b3-8505-abd6d3f5b0b5.png',
+      alt: 'Sports Medal Winners',
       category: 'sports',
-      description: 'Annual sports meet with students lined up for the opening ceremony.'
+      description: 'Students and teachers with medals won during the school sports day.'
     },
     {
       id: '6',
