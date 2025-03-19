@@ -99,7 +99,7 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
               <CardTitle>Upload a new image</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form className="space-y-6">
                 <div className="grid gap-4">
                   <div>
                     <Label htmlFor="image-upload">Image</Label>
@@ -149,10 +149,12 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
                           <SelectValue placeholder="Select a category" />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="academics">Academics</SelectItem>
                           <SelectItem value="campus">Campus</SelectItem>
                           <SelectItem value="classroom">Classroom</SelectItem>
                           <SelectItem value="events">Events</SelectItem>
                           <SelectItem value="sports">Sports</SelectItem>
+                          <SelectItem value="activities">Activities</SelectItem>
                           <SelectItem value="school">School</SelectItem>
                         </SelectContent>
                       </Select>
