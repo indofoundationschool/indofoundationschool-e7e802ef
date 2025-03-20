@@ -154,7 +154,7 @@ const Footer = () => {
                   <div className="mt-0.5 bg-blue-100 p-1.5 rounded-full">
                     <Mail size={16} className="text-school-blue group-hover:scale-110" />
                   </div>
-                  <span className="text-gray-600 group-hover:text-gray-800">indofoundationschool@gmail.com</span>
+                  <span className="text-gray-600 group-hover:text-gray-800 font-semibold">indofoundationschool@gmail.com</span>
                 </motion.li>
                 <motion.li 
                   className="flex items-start space-x-3 group hover:translate-x-1 transition-all duration-300"
@@ -163,7 +163,7 @@ const Footer = () => {
                   <div className="mt-0.5 bg-blue-100 p-1.5 rounded-full">
                     <Phone size={16} className="text-school-blue group-hover:scale-110" />
                   </div>
-                  <div className="text-gray-600 group-hover:text-gray-800">
+                  <div className="text-gray-600 group-hover:text-gray-800 font-semibold">
                     <p>+91 9896110054</p>
                     <p>+91 9896205966</p>
                     <p>01262237556</p>
@@ -176,7 +176,7 @@ const Footer = () => {
                   <div className="mt-0.5 bg-blue-100 p-1.5 rounded-full">
                     <MapPin size={16} className="text-school-blue group-hover:scale-110" />
                   </div>
-                  <span className="text-gray-600 group-hover:text-gray-800">Plot No 42/8, Shivaji Colony Rohtak, Haryana 124001</span>
+                  <span className="text-gray-600 group-hover:text-gray-800 font-semibold">Plot No 42/8, Shivaji Colony Rohtak, Haryana 124001</span>
                 </motion.li>
               </ul>
             </motion.div>
@@ -235,4 +235,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
