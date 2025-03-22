@@ -3,5 +3,5 @@ export const navLinks = [
   { name: 'Home', path: '/', isBold: true, className: "text-black" },
   { name: 'About', path: '/about', isBold: true },
   { name: 'Academics', path: '/academics', isBold: true },
-  { name: 'Enquire', path: '/enquire', isBold: true, highlight: true },
+  { name: 'Enquire', path: '/enquire', isBold: true, highlight: true, className: "text-white" },
 ];

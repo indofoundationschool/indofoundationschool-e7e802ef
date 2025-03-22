@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -38,25 +39,36 @@ const Enquire = () => {
     setSubmitting(true);
 
     try {
-      const subject = encodeURIComponent(`New Enquiry from ${formData.name}`);
+      // Create a proper email subject
+      const subject = encodeURIComponent(`Enquiry from ${formData.name} regarding ${formData.childName || 'admission'}`);
       
+      // Format the email body with all the form details
       let body = encodeURIComponent(
-        `Name: ${formData.name}\n` +
+        `Dear School Administrator,\n\n` +
+        `Please find below the details of my enquiry:\n\n` +
+        `Parent/Guardian Name: ${formData.name}\n` +
         `Email: ${formData.email}\n` +
         `Phone: ${formData.phone}\n` +
         `Child's Name: ${formData.childName || 'Not provided'}\n` +
-        `Grade of Interest: ${formData.grade || 'Not specified'}\n` +
-        `Message: ${formData.message || 'No message provided'}\n\n` +
-        `This enquiry was submitted through the school website.`
+        `Grade of Interest: ${formData.grade || 'Not specified'}\n\n` +
+        `Message:\n${formData.message || 'No additional details provided.'}\n\n` +
+        `I look forward to hearing from you soon.\n\n` +
+        `Best regards,\n` +
+        `${formData.name}`
       );
       
-      const mailtoLink = `mailto:indofoundationschool@gmail.com?subject=${subject}&body=${body}`;
+      // Create the mailto link with the school email
+      const schoolEmail = 'indofoundationschool@gmail.com';
+      const mailtoLink = `mailto:${schoolEmail}?subject=${subject}&body=${body}`;
       
+      // Open the default email client with the prepopulated email
       window.location.href = mailtoLink;
       
+      // Show success message
       setSubmitted(true);
-      toast.success('Enquiry prepared for submission! Your email client has been opened.');
+      toast.success('Your enquiry has been prepared! Your email client will open to send the message.');
       
+      // Reset the form
       setFormData({
         name: '',
         email: '',
@@ -66,20 +78,21 @@ const Enquire = () => {
         message: '',
       });
       
+      // Reset submitted state after some time
       setTimeout(() => {
         setSubmitted(false);
       }, 3000);
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('There was an error submitting your enquiry. Please try again.');
+      console.error('Error preparing email:', error);
+      toast.error('There was an error preparing your enquiry email. Please try again or contact the school directly.');
     } finally {
       setSubmitting(false);
     }
   };
 
+  // School contact information
   const schoolCoordinates = "28.883885709030803,76.59034881178829";
   const schoolName = encodeURIComponent("Indo Foundation School, Shivaji Colony");
-  
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${schoolCoordinates}`;
 
   const contactInfo = [
@@ -129,8 +142,8 @@ const Enquire = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Enquire Now</h1>
-            <p className="text-lg text-gray-600">We're here to answer your questions and provide information about our programs</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contact Us</h1>
+            <p className="text-lg text-gray-600">Have questions or want to learn more about our school? Fill out the form below to get in touch with our administrative team.</p>
           </motion.div>
         </div>
       </section>
@@ -190,7 +203,7 @@ const Enquire = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <h3 className="text-lg font-medium text-gray-900 mb-4">School Hours</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-4">School Hours</h3>
                 <div className="space-y-2 text-gray-600">
                   <p>
                     <span className="font-medium">Monday - Friday:</span> 8:00 AM - 3:00 PM
@@ -226,7 +239,7 @@ const Enquire = () => {
                   </div>
                   <h3 className="text-xl font-medium text-gray-900 mb-2">Thank You!</h3>
                   <p className="text-gray-600 max-w-md mx-auto">
-                    Your enquiry has been prepared for submission. Please send the email that opened in your email client.
+                    Your message has been prepared. Please send the email that opened in your email client to complete your enquiry.
                   </p>
                 </motion.div>
               ) : (
