@@ -19,7 +19,7 @@ const achievements = [
     bgColor: "bg-purple-100"
   },
   { 
-    number: 1000, 
+    number: 10000, 
     label: "Happy Students",
     icon: Award,
     color: "text-amber-600",
