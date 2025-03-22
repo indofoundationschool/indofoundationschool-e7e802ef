@@ -1,3 +1,4 @@
+
 import { Instagram, Facebook, Youtube, Mail, Phone, MapPin, Heart, Sparkles, Award, Flower } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Separator } from "@/components/ui/separator";
@@ -224,8 +225,8 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
           >
-            <p className="text-gray-600 text-sm flex items-center justify-center gap-1">
-              &copy; {currentYear} Indo Foundation School. All rights reserved. Made with <Heart size={14} className="text-red-500 fill-red-500 animate-pulse" /> in India
+            <p className="text-gray-600 text-sm">
+              &copy; {currentYear} Indo Foundation School. All rights reserved.
             </p>
           </motion.div>
         </div>
