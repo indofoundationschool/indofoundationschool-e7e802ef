@@ -26,7 +26,7 @@ const achievements = [
     bgColor: "bg-amber-100"
   },
   { 
-    number: 25, 
+    number: 40, 
     label: "Years of Excellence",
     icon: Clock,
     color: "text-emerald-600",
