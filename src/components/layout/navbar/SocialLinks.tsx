@@ -47,7 +47,7 @@ export const socialLinks = [
   },
   { 
     icon: Facebook, 
-    url: "https://facebook.com", 
+    url: "https://www.facebook.com/indofoundationschooloffical/", 
     ariaLabel: "Facebook",
     color: "#1877F2" // Facebook brand color
   },
