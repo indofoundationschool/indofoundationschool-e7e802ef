@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -115,29 +116,12 @@ const HeroSection = () => {
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text text-transparent"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              <span className="text-gray-900">Indo Foundation </span>
-              <span className="bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text text-transparent">
-                School
-              </span>
-              <motion.span 
-                className="inline-block text-school-blue-dark ml-1"
-                animate={{
-                  rotateZ: [0, 15, 0, -15, 0],
-                  scale: [1, 1.2, 1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 4,
-                }}
-              >
-                <Trophy className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 inline-block" />
-              </motion.span>
+              Indo Foundation School
             </motion.h1>
             
             <motion.p 
