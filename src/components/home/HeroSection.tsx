@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -148,17 +149,6 @@ const HeroSection = () => {
             >
               Nurturing minds, shaping futures. We provide a holistic educational experience focused on academic excellence, character development and temple traditions. <strong>INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.</strong>
             </motion.p>
-
-            <motion.p
-              className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed mt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-            >
-              <strong>
-                INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.
-              </strong>
-            </motion.p>
             
             <motion.div 
               className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4"
@@ -288,3 +278,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
