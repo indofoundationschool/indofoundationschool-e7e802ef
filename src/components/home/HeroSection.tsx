@@ -141,12 +141,20 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-gray-700 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto"
+              className="text-gray-700 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Nurturing minds, shaping futures. We provide a holistic educational experience focused on academic excellence, character development and temple traditions. <strong className="text-school-blue font-semibold">INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.</strong>
+              <span className="font-semibold text-school-blue-dark">
+                Welcome to a sanctuary of learning where tradition meets innovation and dreams take flight.
+              </span> <br className="hidden md:inline" />
+              At <span className="font-bold text-school-blue">Indo Foundation School</span>, we are dedicated to 
+              <span className="font-semibold text-emerald-600 mx-1 underline decoration-amber-400 underline-offset-4">nurturing curious minds</span>, 
+              fostering <span className="text-purple-700 font-semibold">outstanding academic achievement</span>, and building character rooted in timeless temple values. 
+              <span className="block mt-3">
+                  <span className="text-school-blue font-bold inline-block animate-pulse">Established in 1978</span> and flourishing under the Indian Education Society, our school stands as a beacon of excellence in Shivaji Colony, Rohtak, Haryana—empowering the next generation to lead with knowledge, compassion, and integrity.
+              </span>
             </motion.p>
             
             <motion.div 
