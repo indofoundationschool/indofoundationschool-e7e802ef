@@ -124,12 +124,15 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto font-bold text-black"
+              className="text-lg md:text-xl lg:text-2xl font-extrabold text-black leading-relaxed max-w-xl mx-auto
+                         rounded-2xl px-6 py-6 bg-white/80 shadow-lg border-2 border-b-4 border-t-0 border-x-0 border-b-school-blue-light
+                         backdrop-blur-md transition-all duration-300
+                         text-center tracking-wide"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Welcome to a sanctuary of learning where tradition meets innovation & dreams take flight.
+              Welcome to a sanctuary of learning where tradition meets innovation &amp; dreams take flight.
               <br className="hidden md:inline" />
               At Indo Foundation School, we are dedicated to nurturing curious minds, fostering outstanding academic achievement, and building character rooted in timeless temple values.
               <br />
