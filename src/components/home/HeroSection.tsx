@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -151,6 +150,15 @@ const HeroSection = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <strong className="text-school-blue-dark">Nurturing minds</strong>, <strong>shaping futures</strong>. We provide a <strong className="text-school-blue">holistic educational experience</strong> focused on <strong>academic excellence</strong>, <strong>character development</strong> and <strong className="text-school-blue-dark">temple traditions</strong>.
+            </motion.p>
+
+            <motion.p
+              className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed mt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.
             </motion.p>
             
             <motion.div 
