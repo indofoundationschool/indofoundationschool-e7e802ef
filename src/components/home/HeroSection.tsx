@@ -146,7 +146,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <strong className="text-school-blue-dark">Nurturing minds</strong>, <strong>shaping futures</strong>. We provide a <strong className="text-school-blue">holistic educational experience</strong> focused on <strong>academic excellence</strong>, <strong>character development</strong> and <strong className="text-school-blue-dark">temple traditions</strong>.
+              Nurturing minds, shaping futures. We provide a holistic educational experience focused on academic excellence, character development and temple traditions. <strong>INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.</strong>
             </motion.p>
 
             <motion.p
