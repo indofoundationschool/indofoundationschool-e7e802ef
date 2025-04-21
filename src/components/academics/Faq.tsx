@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Link } from 'react-router-dom';
 
 const faqs = [
   {
@@ -79,8 +80,11 @@ const Faq = () => {
           <Button 
             size="lg" 
             className="bg-school-blue hover:bg-school-blue-dark transition-all duration-300 gap-2 shadow-lg hover:shadow-xl"
+            asChild
           >
-            Contact Academic Office
+            <Link to="/enquire">
+              Contact Academic Office
+            </Link>
           </Button>
         </motion.div>
       </div>
