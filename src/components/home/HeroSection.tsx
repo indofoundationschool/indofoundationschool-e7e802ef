@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -142,12 +141,12 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-gray-600 text-lg md:text-xl lg:text-2xl leading-relaxed"
+              className="text-gray-700 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Nurturing minds, shaping futures. We provide a holistic educational experience focused on academic excellence, character development and temple traditions. <strong>INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.</strong>
+              Nurturing minds, shaping futures. We provide a holistic educational experience focused on academic excellence, character development and temple traditions. <strong className="text-school-blue font-semibold">INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.</strong>
             </motion.p>
             
             <motion.div 
@@ -278,4 +277,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
