@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -141,59 +142,16 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-gray-700 text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto relative"
+              className="text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto relative text-transparent bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text font-semibold"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <span className="font-extrabold text-transparent bg-gradient-to-r from-violet-600 via-emerald-500 to-sky-500 bg-clip-text animate-fade-in">
-                Welcome to a sanctuary of learning
-              </span>
-              <span className="mx-1">where</span>
-              <span className="inline-block font-semibold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-md">
-                tradition
-              </span>
-              <span className="mx-1">meets</span>
-              <span className="inline-block font-semibold text-sky-600 bg-sky-100 px-2 py-0.5 rounded-md">
-                innovation
-              </span>
-              <span className="mx-1">&amp; dreams take flight.</span>
+              Welcome to a sanctuary of learning where tradition meets innovation & dreams take flight.
               <br className="hidden md:inline" />
-              <span>
-                At <span className="font-bold text-school-blue underline decoration-wavy underline-offset-4 hover:decoration-solid transition-all duration-200">Indo Foundation School</span>
-                , we are dedicated to&nbsp;
-                <span className="inline-flex items-center gap-2 font-semibold text-emerald-600 bg-gradient-to-r from-amber-200/50 via-emerald-100 to-white px-2 rounded shadow-sm underline decoration-amber-400 decoration-2 underline-offset-2">
-                  <span className="inline-block animate-bounce">
-                    <svg viewBox="0 0 20 21" fill="none" className="w-4 h-4">
-                      <circle cx="10" cy="10.5" r="10" fill="#FACC15"/>
-                    </svg>
-                  </span>
-                  nurturing curious minds
-                </span>
-                , fostering&nbsp;
-                <span className="inline-flex items-center gap-1 font-semibold px-2 py-0.5 rounded text-purple-700 bg-purple-100 border-b-2 border-purple-400 animate-pulse shadow-sm">
-                  <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
-                  outstanding academic achievement
-                </span>
-                , and building character rooted in
-                <span className="inline-block font-semibold text-orange-700 mx-1 px-2 bg-orange-100 rounded-full shadow-sm">
-                  timeless temple values
-                </span>.
-              </span>
-              <span className="block mt-3">
-                <span className="text-school-blue font-bold inline-block animate-pulse">
-                  Established in 1978
-                </span> 
-                <span className="mx-1 italic text-gray-500">and flourishing under the</span> 
-                <span className="text-emerald-700 font-semibold bg-emerald-100 px-2 py-0.5 rounded">Indian Education Society</span>
-                , our school stands as a <span className="text-gradient bg-gradient-to-r from-amber-400 to-emerald-500 bg-clip-text text-transparent font-extrabold">beacon of excellence</span>
-                <span className="mx-1">in</span>
-                <span className="text-pink-800 font-semibold">Shivaji Colony, Rohtak, Haryana</span>
-                —empowering the next generation to
-                <span className="inline-block text-emerald-600 font-bold mx-1 px-2 py-0.5 rounded bg-emerald-50 shadow-sm">lead with knowledge</span>
-                , <span className="inline-block text-rose-700 font-semibold px-2 py-0.5 rounded bg-rose-50 shadow-sm">compassion</span>, and
-                <span className="inline-block text-sky-700 font-semibold px-2 py-0.5 rounded bg-sky-50 shadow-sm">integrity</span>.
-              </span>
+              At Indo Foundation School, we are dedicated to nurturing curious minds, fostering outstanding academic achievement, and building character rooted in timeless temple values.
+              <br />
+              Established in 1978 and flourishing under the Indian Education Society, our school stands as a beacon of excellence in Shivaji Colony, Rohtak, Haryana—empowering the next generation to lead with knowledge, compassion, and integrity.
             </motion.p>
             
             <motion.div 
