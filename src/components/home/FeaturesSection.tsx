@@ -27,7 +27,7 @@ const features = [
   },
   {
     title: "<strong>Temple Values</strong>",
-    description: "Our curriculum incorporates ancient temple wisdom and traditions for holistic development.",
+    description: "Our curriculum incorporates ancient cultural wisdom and traditions for holistic development.",
     icon: Sparkles,
     color: "from-emerald-500/20 to-emerald-600/10",
     iconColor: "text-emerald-600",
