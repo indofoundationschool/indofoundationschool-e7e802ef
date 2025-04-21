@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -142,7 +141,7 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto relative text-transparent bg-gradient-to-r from-school-blue to-school-blue-dark bg-clip-text font-semibold"
+              className="text-lg md:text-xl lg:text-2xl leading-relaxed tracking-wide max-w-xl mx-auto text-school-blue-dark"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
