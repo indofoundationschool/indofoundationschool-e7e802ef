@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -125,7 +126,7 @@ const HeroSection = () => {
             
             <motion.p 
               className="text-lg md:text-xl lg:text-2xl font-extrabold text-black leading-relaxed max-w-xl mx-auto
-                         rounded-2xl px-8 py-6 bg-[#F2FCE2]/90 shadow-lg border-2 border-b-4 border-t-0 border-x-0 border-b-school-blue-light/50
+                         rounded-2xl px-8 py-6 bg-school-blue-light/30 shadow-lg border-2 border-b-4 border-t-0 border-x-0 border-b-school-blue-light/50
                          backdrop-blur-md transition-all duration-300 text-center tracking-wide"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
