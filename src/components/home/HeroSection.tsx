@@ -24,7 +24,6 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-school-blue/20 via-school-blue/10 to-white flex items-center overflow-hidden">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
           className="absolute top-0 right-0 w-[80%] h-[80%] bg-gradient-to-br from-school-blue/30 to-school-blue-light/20 rounded-full blur-3xl"
@@ -55,7 +54,6 @@ const HeroSection = () => {
           }}
         ></motion.div>
         
-        {/* Floating elements */}
         {[...Array(8)].map((_, i) => {
           const icons = [
             <Sparkles key={`sparkle-${i}`} size={15 + i * 5} className="text-school-blue/70" />,
@@ -97,7 +95,6 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-6 py-28 md:py-36 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left column: Text and buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -158,7 +155,9 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.
+              <strong>
+                INDO FOUNDATION SCHOOL was established in 1978 and it is managed by the Indian Education Society which is Unaided. It is located in Shivaji Colony Rohtak District and in Haryana State.
+              </strong>
             </motion.p>
             
             <motion.div 
@@ -200,7 +199,6 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right column: School image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -208,7 +206,6 @@ const HeroSection = () => {
             className="flex justify-center items-center"
           >
             <div className="relative w-full max-w-lg">
-              {/* Decorative background elements */}
               <div className="absolute -z-10 inset-0 bg-gradient-to-br from-school-blue/40 to-school-blue-light/30 rounded-full blur-3xl transform scale-90 translate-x-10 translate-y-10"></div>
               <motion.div
                 animate={{ 
@@ -223,7 +220,6 @@ const HeroSection = () => {
                 className="relative z-10"
               >
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/90 transition-all duration-500 hover:scale-[1.03] hover:shadow-school-blue/30 hover:shadow-2xl">
-                  {/* Animated overlay */}
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-blue-100/40 to-transparent"
                     animate={{
@@ -237,7 +233,6 @@ const HeroSection = () => {
                     }}
                   />
                   
-                  {/* Decorative corner elements */}
                   <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-school-blue/60 rounded-tl-lg"></div>
                   <div className="absolute top-0 right-0 w-16 h-16 border-t-4 border-r-4 border-school-blue/60 rounded-tr-lg"></div>
                   <div className="absolute bottom-0 left-0 w-16 h-16 border-b-4 border-l-4 border-school-blue/60 rounded-bl-lg"></div>
@@ -251,7 +246,6 @@ const HeroSection = () => {
                 </div>
               </motion.div>
               
-              {/* Decorative floating elements */}
               <motion.div
                 className="absolute -bottom-8 -right-8 bg-white rounded-full p-4 shadow-xl z-20 border-2 border-school-blue/20"
                 animate={{ 
