@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { GraduationCap, Users, Award, Newspaper, BookOpen, Star, Sparkles, Heart, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -26,7 +25,7 @@ const features = [
     iconColor: "text-amber-600",
   },
   {
-    title: "<strong>Temple Values</strong>",
+    title: "<strong>Cultural Values</strong>",
     description: "Our curriculum incorporates ancient cultural wisdom and traditions for holistic development.",
     icon: Sparkles,
     color: "from-emerald-500/20 to-emerald-600/10",
