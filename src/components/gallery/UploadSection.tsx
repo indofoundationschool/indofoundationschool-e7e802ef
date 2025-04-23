@@ -27,15 +27,18 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
     const file = e.target.files?.[0];
     if (file) {
       setImageFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewUrl(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+      // Create a local preview URL for the selected file
+      const objectUrl = URL.createObjectURL(file);
+      setPreviewUrl(objectUrl);
+      console.log("File selected:", file.name, "Preview URL:", objectUrl);
     }
   };
 
   const resetForm = () => {
+    // Revoke object URL to avoid memory leaks
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl);
+    }
     setImageFile(null);
     setPreviewUrl(null);
     setCategory('');
@@ -54,26 +57,30 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
 
     setIsUploading(true);
 
-    // Since this is a simulation and we're not using a real backend,
-    // we'll just use the local preview URL as the image source
-    setTimeout(() => {
-      if (previewUrl) {
-        const newImage: GalleryImage = {
-          id: Date.now().toString(),
-          src: previewUrl,
-          alt,
-          category,
-          description: description || undefined,
-        };
-        
-        onImageUpload(newImage);
-        resetForm();
-        setIsExpanded(false);
-      } else {
-        toast.error('Image preview not available');
-        setIsUploading(false);
-      }
-    }, 1000);
+    try {
+      // Since we're not using a real backend storage in this example,
+      // we'll use the previewUrl as the image source
+      const newImage: GalleryImage = {
+        id: Date.now().toString(),
+        src: previewUrl!, // We've already checked this isn't null
+        alt,
+        category,
+        description: description || undefined,
+      };
+      
+      console.log("Submitting new image:", newImage);
+      
+      // Call the callback to add the image to the gallery
+      onImageUpload(newImage);
+      
+      // Reset the form
+      resetForm();
+      setIsExpanded(false);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      toast.error('Failed to upload image. Please try again.');
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -120,6 +127,9 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
                             <button
                               type="button"
                               onClick={() => {
+                                if (previewUrl) {
+                                  URL.revokeObjectURL(previewUrl);
+                                }
                                 setImageFile(null);
                                 setPreviewUrl(null);
                               }}
@@ -129,19 +139,19 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
                             </button>
                           </div>
                         ) : (
-                          <>
+                          <label className="w-full h-40 flex flex-col items-center justify-center cursor-pointer">
                             <Upload className="h-10 w-10 text-gray-400 mb-2" />
                             <p className="text-sm text-gray-500">Click to upload or drag and drop</p>
                             <p className="text-xs text-gray-400 mt-1">PNG, JPG, GIF up to 10MB</p>
-                          </>
+                            <Input
+                              id="image-upload"
+                              type="file"
+                              accept="image/*"
+                              onChange={handleFileChange}
+                              className="hidden"
+                            />
+                          </label>
                         )}
-                        <Input
-                          id="image-upload"
-                          type="file"
-                          accept="image/*"
-                          onChange={handleFileChange}
-                          className={previewUrl ? "hidden" : "opacity-0 absolute inset-0 cursor-pointer"}
-                        />
                       </div>
                     </div>
                   </div>

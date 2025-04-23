@@ -85,8 +85,9 @@ const Gallery = () => {
   }, []);
 
   const handleImageUpload = (newImage: GalleryImage) => {
+    console.log("New image received:", newImage);
     // Add new image to the images array
-    setImages(prevImages => [...prevImages, newImage]);
+    setImages(prevImages => [newImage, ...prevImages]);
     // Show a success toast
     toast.success('Image uploaded successfully!');
   };
