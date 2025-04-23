@@ -54,6 +54,13 @@ const Gallery = () => {
       alt: 'School Assembly Session',
       category: 'school',
       description: 'Students gathered for the morning assembly session on the school grounds.'
+    },
+    {
+      id: '6',
+      src: '/lovable-uploads/8d6715e0-c260-4542-8ab6-4d9eac1a4045.png',
+      alt: 'Quiz Competition Participation',
+      category: 'school',
+      description: 'Students in uniforms sitting together before or after participating in a quiz or similar school competition.'
     }
   ];
 
