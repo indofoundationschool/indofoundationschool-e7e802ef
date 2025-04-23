@@ -6,6 +6,7 @@ import UploadSection from '@/components/gallery/UploadSection';
 import GalleryGrid from '@/components/gallery/GalleryGrid';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 export type GalleryImage = {
   id: string;
@@ -83,7 +84,10 @@ const Gallery = () => {
   }, []);
 
   const handleImageUpload = (newImage: GalleryImage) => {
+    // Add new image to the images array
     setImages(prevImages => [...prevImages, newImage]);
+    // Show a success toast
+    toast.success('Image uploaded successfully!');
   };
 
   const categories = ['all', ...Array.from(new Set(images.map(img => img.category)))];

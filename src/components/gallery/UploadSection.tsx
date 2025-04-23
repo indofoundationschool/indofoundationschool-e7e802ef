@@ -53,8 +53,8 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
 
     setIsUploading(true);
 
-    // In a real app, here you would upload the image to your storage
-    // For this example, we'll just use the local preview URL
+    // Since this is a simulation and we're not using a real backend,
+    // we'll just use the local preview URL as the image source
     setTimeout(() => {
       const newImage: GalleryImage = {
         id: Date.now().toString(),
@@ -65,7 +65,6 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
       };
       
       onImageUpload(newImage);
-      toast.success('Image uploaded successfully!');
       resetForm();
       setIsExpanded(false);
     }, 1000);
@@ -99,7 +98,7 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
               <CardTitle>Upload a new image</CardTitle>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-4">
                   <div>
                     <Label htmlFor="image-upload">Image</Label>
@@ -182,30 +181,31 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
                     />
                   </div>
                 </div>
+
+                <div className="flex justify-between mt-4">
+                  <Button type="button" variant="outline" onClick={() => setIsExpanded(false)}>
+                    Cancel
+                  </Button>
+                  <Button 
+                    type="submit" 
+                    disabled={!imageFile || !category || !alt || isUploading}
+                    className="gap-2"
+                  >
+                    {isUploading ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+                        Uploading...
+                      </>
+                    ) : (
+                      <>
+                        <Check size={16} />
+                        Upload Image
+                      </>
+                    )}
+                  </Button>
+                </div>
               </form>
             </CardContent>
-            <CardFooter className="flex justify-between">
-              <Button variant="outline" onClick={() => setIsExpanded(false)}>
-                Cancel
-              </Button>
-              <Button 
-                onClick={handleSubmit} 
-                disabled={!imageFile || !category || !alt || isUploading}
-                className="gap-2"
-              >
-                {isUploading ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
-                    Uploading...
-                  </>
-                ) : (
-                  <>
-                    <Check size={16} />
-                    Upload Image
-                  </>
-                )}
-              </Button>
-            </CardFooter>
           </Card>
         </motion.div>
       )}
