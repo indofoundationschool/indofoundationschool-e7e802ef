@@ -61,6 +61,13 @@ const Gallery = () => {
       alt: 'Quiz Competition Participation',
       category: 'school',
       description: 'Students in uniforms sitting together before or after participating in a quiz or similar school competition.'
+    },
+    {
+      id: '7',
+      src: '/lovable-uploads/4d92c171-40e3-4364-b172-f16ddc40fb65.png',
+      alt: 'School Error Image',
+      category: 'school',
+      description: 'Screenshot showing 404 error page from the school website.'
     }
   ];
 
