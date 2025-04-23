@@ -7,6 +7,7 @@ import GalleryGrid from '@/components/gallery/GalleryGrid';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
+import { Image } from 'lucide-react';
 
 export type GalleryImage = {
   id: string;
@@ -74,7 +75,7 @@ const Gallery = () => {
 
   const [images, setImages] = useState<GalleryImage[]>(initialImages);
 
-  // Simulate loading state and show toast when gallery is loaded
+  // Load gallery and show toast when gallery is loaded
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -90,6 +91,7 @@ const Gallery = () => {
     toast.success('Image uploaded successfully!');
   };
 
+  // Extract unique categories from images
   const categories = ['all', ...Array.from(new Set(images.map(img => img.category)))];
   
   const filteredImages = selectedCategory === 'all' 
@@ -116,32 +118,37 @@ const Gallery = () => {
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-school-blue"></div>
           </div>
         ) : (
-          <Tabs defaultValue="all" onValueChange={setSelectedCategory} className="mb-8">
-            <div className="flex justify-center">
-              <TabsList className="bg-blue-50/50 p-1 mb-6">
-                {categories.map(category => (
-                  <TabsTrigger 
-                    key={category} 
-                    value={category}
-                    className="capitalize data-[state=active]:bg-school-blue data-[state=active]:text-white"
-                  >
-                    {category}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
-            
-            {categories.map(category => (
-              <TabsContent key={category} value={category}>
-                <GalleryGrid 
-                  images={filteredImages}
-                />
+          <>
+            <Tabs defaultValue="all" onValueChange={setSelectedCategory} className="mb-8">
+              <div className="flex justify-center">
+                <TabsList className="bg-blue-50/50 p-1 mb-6">
+                  {categories.map(category => (
+                    <TabsTrigger 
+                      key={category} 
+                      value={category}
+                      className="capitalize data-[state=active]:bg-school-blue data-[state=active]:text-white"
+                    >
+                      {category}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
+              
+              <TabsContent value={selectedCategory}>
+                {filteredImages.length > 0 ? (
+                  <GalleryGrid images={filteredImages} />
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-16 text-gray-500">
+                    <Image className="w-16 h-16 mb-4 text-gray-300" />
+                    <p>No images found in this category.</p>
+                  </div>
+                )}
               </TabsContent>
-            ))}
-          </Tabs>
-        )}
+            </Tabs>
 
-        <UploadSection onImageUpload={handleImageUpload} />
+            <UploadSection onImageUpload={handleImageUpload} />
+          </>
+        )}
       </div>
     </Layout>
   );

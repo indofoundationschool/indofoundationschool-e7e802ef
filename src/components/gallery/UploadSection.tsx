@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, Check, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -46,6 +46,7 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (!imageFile || !category || !alt) {
       toast.error('Please fill in all required fields');
       return;
@@ -56,17 +57,22 @@ const UploadSection = ({ onImageUpload }: UploadSectionProps) => {
     // Since this is a simulation and we're not using a real backend,
     // we'll just use the local preview URL as the image source
     setTimeout(() => {
-      const newImage: GalleryImage = {
-        id: Date.now().toString(),
-        src: previewUrl as string,
-        alt,
-        category,
-        description: description || undefined,
-      };
-      
-      onImageUpload(newImage);
-      resetForm();
-      setIsExpanded(false);
+      if (previewUrl) {
+        const newImage: GalleryImage = {
+          id: Date.now().toString(),
+          src: previewUrl,
+          alt,
+          category,
+          description: description || undefined,
+        };
+        
+        onImageUpload(newImage);
+        resetForm();
+        setIsExpanded(false);
+      } else {
+        toast.error('Image preview not available');
+        setIsUploading(false);
+      }
     }, 1000);
   };
 
