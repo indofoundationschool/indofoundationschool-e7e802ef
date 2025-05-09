@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
@@ -7,10 +8,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
-import { Mail, Phone, MapPin, Send, CheckCircle2, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, ExternalLink, Shield } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import MapSection from '@/components/enquire/MapSection';
 import { Helmet } from 'react-helmet-async';
+import { sanitizeInput, isValidEmail, isValidPhone, createRateLimiter, generateNonce } from '@/lib/security';
 
 const Enquire = () => {
   const [formData, setFormData] = useState({
@@ -24,6 +26,15 @@ const Enquire = () => {
 
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [csrfToken, setCsrfToken] = useState('');
+  
+  // Create a rate limiter that allows 5 submissions in 5 minutes
+  const checkRateLimit = createRateLimiter(5, 5 * 60 * 1000);
+  
+  // Generate CSRF token on component mount
+  useEffect(() => {
+    setCsrfToken(generateNonce());
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -34,27 +45,68 @@ const Enquire = () => {
     setFormData(prev => ({ ...prev, grade: value }));
   };
 
+  const validateForm = (): boolean => {
+    if (!formData.name.trim()) {
+      toast.error('Please enter your name');
+      return false;
+    }
+    
+    if (!isValidEmail(formData.email)) {
+      toast.error('Please enter a valid email address');
+      return false;
+    }
+    
+    if (!isValidPhone(formData.phone)) {
+      toast.error('Please enter a valid phone number');
+      return false;
+    }
+    
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Check rate limiting
+    if (!checkRateLimit()) {
+      toast.error('Too many form submissions. Please try again later.');
+      return;
+    }
+    
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+    
     setSubmitting(true);
 
     try {
+      // Sanitize all inputs before using them
+      const sanitizedFormData = {
+        name: sanitizeInput(formData.name),
+        email: sanitizeInput(formData.email),
+        phone: sanitizeInput(formData.phone),
+        childName: sanitizeInput(formData.childName || ''),
+        grade: sanitizeInput(formData.grade || ''),
+        message: sanitizeInput(formData.message || '')
+      };
+      
       // Create a proper email subject
-      const subject = encodeURIComponent(`Enquiry from ${formData.name} regarding ${formData.childName || 'admission'}`);
+      const subject = encodeURIComponent(`Enquiry from ${sanitizedFormData.name} regarding ${sanitizedFormData.childName || 'admission'}`);
       
       // Format the email body with all the form details
       let body = encodeURIComponent(
         `Dear School Administrator,\n\n` +
         `Please find below the details of my enquiry:\n\n` +
-        `Parent/Guardian Name: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone: ${formData.phone}\n` +
-        `Child's Name: ${formData.childName || 'Not provided'}\n` +
-        `Grade of Interest: ${formData.grade || 'Not specified'}\n\n` +
-        `Message:\n${formData.message || 'No additional details provided.'}\n\n` +
+        `Parent/Guardian Name: ${sanitizedFormData.name}\n` +
+        `Email: ${sanitizedFormData.email}\n` +
+        `Phone: ${sanitizedFormData.phone}\n` +
+        `Child's Name: ${sanitizedFormData.childName || 'Not provided'}\n` +
+        `Grade of Interest: ${sanitizedFormData.grade || 'Not specified'}\n\n` +
+        `Message:\n${sanitizedFormData.message || 'No additional details provided.'}\n\n` +
         `I look forward to hearing from you soon.\n\n` +
         `Best regards,\n` +
-        `${formData.name}`
+        `${sanitizedFormData.name}`
       );
       
       // Create the mailto link with the school email
@@ -77,6 +129,9 @@ const Enquire = () => {
         grade: '',
         message: '',
       });
+      
+      // Generate a new CSRF token
+      setCsrfToken(generateNonce());
       
       // Reset submitted state after some time
       setTimeout(() => {
@@ -291,7 +346,13 @@ const Enquire = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">Send us a Message</h2>
+                <div className="flex items-center text-green-600 text-sm">
+                  <Shield size={16} className="mr-1" />
+                  <span>Secure Form</span>
+                </div>
+              </div>
               
               {submitted ? (
                 <motion.div 
@@ -310,6 +371,9 @@ const Enquire = () => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Hidden CSRF token */}
+                  <input type="hidden" name="_csrf" value={csrfToken} />
+                  
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Your Name *</Label>
@@ -320,6 +384,7 @@ const Enquire = () => {
                         onChange={handleChange}
                         placeholder="John Doe"
                         required
+                        maxLength={50}
                         className="focus-ring"
                       />
                     </div>
@@ -334,6 +399,7 @@ const Enquire = () => {
                         onChange={handleChange}
                         placeholder="john@example.com"
                         required
+                        maxLength={100}
                         className="focus-ring"
                       />
                     </div>
@@ -347,6 +413,7 @@ const Enquire = () => {
                         onChange={handleChange}
                         placeholder="+91 98765 43210"
                         required
+                        maxLength={20}
                         className="focus-ring"
                       />
                     </div>
@@ -359,6 +426,7 @@ const Enquire = () => {
                         value={formData.childName}
                         onChange={handleChange}
                         placeholder="Child's name"
+                        maxLength={50}
                         className="focus-ring"
                       />
                     </div>
@@ -389,8 +457,12 @@ const Enquire = () => {
                       onChange={handleChange}
                       placeholder="Please share your questions or requirements..."
                       rows={4}
+                      maxLength={1000}
                       className="resize-none focus-ring"
                     />
+                    <div className="text-xs text-gray-500 text-right">
+                      {formData.message.length}/1000 characters
+                    </div>
                   </div>
                   
                   <Button 

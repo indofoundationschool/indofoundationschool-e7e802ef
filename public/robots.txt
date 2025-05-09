@@ -3,5 +3,18 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /*?*
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-json/
+Disallow: /.env
+Disallow: /.git/
+Disallow: /.htaccess
+Disallow: /config/
+Disallow: /includes/
 
 Sitemap: https://www.indofoundationschool.com/sitemap.xml
