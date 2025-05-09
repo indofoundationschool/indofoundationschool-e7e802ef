@@ -1,3 +1,4 @@
+
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -32,18 +33,51 @@ const About = () => {
     }
   ];
 
+  // Structured data for the about page
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.indofoundationschool.com/about"
+    },
+    "headline": "About Indo Foundation School",
+    "description": "Learn about Indo Foundation School's mission, vision, core values, and our commitment to educational excellence.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Indo Foundation School",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.indofoundationschool.com/lovable-uploads/5704d268-92a8-4704-9601-2f9cab7af2f5.jpg"
+      }
+    }
+  };
+
   return <Layout>
       <Helmet>
-        <title>About Us - Indo Foundation School</title>
-        <meta name="description" content="Learn about Indo Foundation School's mission, vision, core values, and our commitment to educational excellence and holistic student development." />
-        <meta name="keywords" content="about Indo Foundation School, school mission, school values, education philosophy, school history" />
+        <title>About Indo Foundation School | Our Mission, Vision & Values</title>
+        <meta name="description" content="Discover Indo Foundation School's mission to provide exceptional education, our vision of nurturing future leaders, and our core values of excellence, integrity, innovation, inclusivity, leadership, and compassion." />
+        <meta name="keywords" content="about Indo Foundation School, school mission, school vision, education philosophy, school history, school values, Rohtak education, CBSE school values" />
         <link rel="canonical" href="https://www.indofoundationschool.com/about" />
-        <meta property="og:title" content="About Indo Foundation School" />
-        <meta property="og:description" content="Learn about our mission, vision, core values, and our commitment to educational excellence and holistic student development." />
+        
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.indofoundationschool.com/about" />
+        <meta property="og:title" content="About Indo Foundation School | Our Mission, Vision & Values" />
+        <meta property="og:description" content="Discover Indo Foundation School's mission to provide exceptional education, our vision of nurturing future leaders, and our core values that guide our approach to education." />
+        <meta property="og:image" content="https://www.indofoundationschool.com/lovable-uploads/d80d2fa3-0494-48a8-865e-5f224454dd59.png" />
+        
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Indo Foundation School" />
-        <meta name="twitter:description" content="Learn about our mission, vision, core values, and our commitment to educational excellence and holistic student development." />
+        <meta name="twitter:url" content="https://www.indofoundationschool.com/about" />
+        <meta name="twitter:title" content="About Indo Foundation School | Our Mission, Vision & Values" />
+        <meta name="twitter:description" content="Discover Indo Foundation School's mission, vision, and core values that guide our approach to education." />
+        <meta name="twitter:image" content="https://www.indofoundationschool.com/lovable-uploads/d80d2fa3-0494-48a8-865e-5f224454dd59.png" />
+        
+        {/* Structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       
       <section className="relative pt-20 pb-16 bg-gradient-to-b from-school-blue/10 to-white">

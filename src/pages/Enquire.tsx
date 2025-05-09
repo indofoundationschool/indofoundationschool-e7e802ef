@@ -90,6 +90,46 @@ const Enquire = () => {
     }
   };
 
+  // Structured data for contact page
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.indofoundationschool.com/enquire"
+    },
+    "headline": "Contact Indo Foundation School",
+    "description": "Contact Indo Foundation School for admissions information, campus visits, or general inquiries.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Indo Foundation School",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.indofoundationschool.com/lovable-uploads/5704d268-92a8-4704-9601-2f9cab7af2f5.jpg"
+      }
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-9896110054",
+      "contactType": "customer service",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No 42/8, Shivaji Colony",
+      "addressLocality": "Rohtak",
+      "addressRegion": "Haryana",
+      "postalCode": "124001",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "28.883885709030803",
+      "longitude": "76.59034881178829"
+    }
+  };
+
   // School contact information
   const schoolCoordinates = "28.883885709030803,76.59034881178829";
   const schoolName = encodeURIComponent("Indo Foundation School, Shivaji Colony");
@@ -130,16 +170,29 @@ const Enquire = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Enquire Now - Indo Foundation School</title>
-        <meta name="description" content="Contact Indo Foundation School for admissions information, campus visits, or general inquiries. We're here to answer your questions about our educational programs." />
-        <meta name="keywords" content="school admission, contact school, school inquiry, visit campus, school enrollment" />
+        <title>Contact & Admissions Enquiry | Indo Foundation School Rohtak</title>
+        <meta name="description" content="Contact Indo Foundation School Rohtak for admissions information, campus visits, or general inquiries. Fill our enquiry form or reach us by phone, email, or visit our campus in Shivaji Colony." />
+        <meta name="keywords" content="Indo Foundation School contact, school admission Rohtak, school enquiry form, visit school campus, school enrollment Rohtak, admission process, contact details, school timings, Shivaji Colony school" />
         <link rel="canonical" href="https://www.indofoundationschool.com/enquire" />
-        <meta property="og:title" content="Enquire at Indo Foundation School" />
-        <meta property="og:description" content="Contact us for admissions information, campus visits, or general inquiries about our educational programs." />
+        
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.indofoundationschool.com/enquire" />
+        <meta property="og:title" content="Contact & Admissions Enquiry | Indo Foundation School Rohtak" />
+        <meta property="og:description" content="Contact Indo Foundation School for admissions information, campus visits, or general inquiries about our educational programs. Visit us in Shivaji Colony, Rohtak." />
+        <meta property="og:image" content="https://www.indofoundationschool.com/lovable-uploads/d80d2fa3-0494-48a8-865e-5f224454dd59.png" />
+        
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Enquire at Indo Foundation School" />
+        <meta name="twitter:url" content="https://www.indofoundationschool.com/enquire" />
+        <meta name="twitter:title" content="Contact & Admissions Enquiry | Indo Foundation School" />
         <meta name="twitter:description" content="Contact us for admissions information, campus visits, or general inquiries about our educational programs." />
+        <meta name="twitter:image" content="https://www.indofoundationschool.com/lovable-uploads/d80d2fa3-0494-48a8-865e-5f224454dd59.png" />
+        
+        {/* Structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       
       <section className="relative pt-20 pb-16 bg-gradient-to-b from-school-blue/5 to-white">

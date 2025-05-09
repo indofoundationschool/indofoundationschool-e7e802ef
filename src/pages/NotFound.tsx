@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from 'framer-motion';
@@ -19,9 +20,22 @@ const NotFound = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Page Not Found - Indo Foundation School</title>
-        <meta name="description" content="The page you are looking for does not exist. Please navigate back to the Indo Foundation School homepage." />
-        <meta name="robots" content="noindex, nofollow" />
+        <title>Page Not Found | Indo Foundation School</title>
+        <meta name="description" content="The page you are looking for does not exist. Please navigate back to the Indo Foundation School homepage to find what you're looking for." />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://www.indofoundationschool.com" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://www.indofoundationschool.com${location.pathname}`} />
+        <meta property="og:title" content="Page Not Found | Indo Foundation School" />
+        <meta property="og:description" content="The page you are looking for does not exist. Please navigate back to the Indo Foundation School homepage." />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:url" content={`https://www.indofoundationschool.com${location.pathname}`} />
+        <meta name="twitter:title" content="Page Not Found | Indo Foundation School" />
+        <meta name="twitter:description" content="The page you are looking for does not exist. Please navigate back to the Indo Foundation School homepage." />
       </Helmet>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-school-blue/5 to-white px-6">
         <div className="text-center max-w-xl">
