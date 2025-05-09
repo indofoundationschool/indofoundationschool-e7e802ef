@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
 import { BookOpen, Users, Award, Target, Shield, Heart } from 'lucide-react';
@@ -32,6 +33,19 @@ const About = () => {
   ];
 
   return <Layout>
+      <Helmet>
+        <title>About Us - Indo Foundation School</title>
+        <meta name="description" content="Learn about Indo Foundation School's mission, vision, core values, and our commitment to educational excellence and holistic student development." />
+        <meta name="keywords" content="about Indo Foundation School, school mission, school values, education philosophy, school history" />
+        <link rel="canonical" href="https://www.indofoundationschool.com/about" />
+        <meta property="og:title" content="About Indo Foundation School" />
+        <meta property="og:description" content="Learn about our mission, vision, core values, and our commitment to educational excellence and holistic student development." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Indo Foundation School" />
+        <meta name="twitter:description" content="Learn about our mission, vision, core values, and our commitment to educational excellence and holistic student development." />
+      </Helmet>
+      
       <section className="relative pt-20 pb-16 bg-gradient-to-b from-school-blue/10 to-white">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-school-blue/10 rounded-full blur-3xl"></div>

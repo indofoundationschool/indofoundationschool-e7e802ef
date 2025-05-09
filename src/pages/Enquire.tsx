@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/layout/Layout';
@@ -11,6 +10,7 @@ import { toast } from 'sonner';
 import { Mail, Phone, MapPin, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import MapSection from '@/components/enquire/MapSection';
+import { Helmet } from 'react-helmet-async';
 
 const Enquire = () => {
   const [formData, setFormData] = useState({
@@ -129,6 +129,19 @@ const Enquire = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Enquire Now - Indo Foundation School</title>
+        <meta name="description" content="Contact Indo Foundation School for admissions information, campus visits, or general inquiries. We're here to answer your questions about our educational programs." />
+        <meta name="keywords" content="school admission, contact school, school inquiry, visit campus, school enrollment" />
+        <link rel="canonical" href="https://www.indofoundationschool.com/enquire" />
+        <meta property="og:title" content="Enquire at Indo Foundation School" />
+        <meta property="og:description" content="Contact us for admissions information, campus visits, or general inquiries about our educational programs." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Enquire at Indo Foundation School" />
+        <meta name="twitter:description" content="Contact us for admissions information, campus visits, or general inquiries about our educational programs." />
+      </Helmet>
+      
       <section className="relative pt-20 pb-16 bg-gradient-to-b from-school-blue/5 to-white">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-20 -right-20 w-80 h-80 bg-school-blue/10 rounded-full blur-3xl"></div>
