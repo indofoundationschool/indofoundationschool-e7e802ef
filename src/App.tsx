@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Pages
 import Index from "./pages/Index";
@@ -30,28 +30,74 @@ const queryClient = new QueryClient({
 
 // Security middleware component
 const SecurityProvider = ({ children }: { children: React.ReactNode }) => {
+  const [isInIframe, setIsInIframe] = useState(false);
+
   useEffect(() => {
-    // Prevent clickjacking attempts
-    if (window.self !== window.top) {
-      window.top.location = window.self.location;
+    try {
+      // Safer way to check if we're in an iframe
+      setIsInIframe(window.self !== window.top);
+    } catch (e) {
+      // If accessing window.top throws an error due to cross-origin restrictions,
+      // we're definitely in a cross-origin iframe
+      setIsInIframe(true);
     }
     
     // Disable browser developer tools for production environments
     if (process.env.NODE_ENV === 'production') {
-      document.addEventListener('contextmenu', (e) => e.preventDefault());
+      // Use a safer approach for context menu prevention
+      const preventContextMenu = (e: MouseEvent) => {
+        if (e.target instanceof HTMLElement && !e.target.closest('input, textarea')) {
+          e.preventDefault();
+        }
+      };
+      
+      document.addEventListener('contextmenu', preventContextMenu);
       
       // Add event listeners to detect common dev tool keyboard shortcuts
-      document.addEventListener('keydown', (e) => {
+      const preventDevTools = (e: KeyboardEvent) => {
         // Prevent F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C
         if (
           e.key === 'F12' || 
           (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))
         ) {
-          e.preventDefault();
+          if (!(e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement)) {
+            e.preventDefault();
+          }
         }
-      });
+      };
+      
+      document.addEventListener('keydown', preventDevTools);
+      
+      return () => {
+        document.removeEventListener('contextmenu', preventContextMenu);
+        document.removeEventListener('keydown', preventDevTools);
+      };
     }
   }, []);
+
+  // Show a warning for iframe embedding instead of trying to break out
+  if (isInIframe) {
+    return (
+      <div className="fixed inset-0 bg-white p-6 z-[9999]">
+        <div className="max-w-lg mx-auto mt-10 p-6 bg-yellow-50 border border-yellow-200 rounded-lg shadow-md">
+          <h1 className="text-xl font-bold mb-4">Embedding Notice</h1>
+          <p className="mb-4">This website should not be displayed in an iframe for security reasons.</p>
+          <p>
+            Please visit{" "}
+            <a 
+              href={window.location.href} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              our website directly
+            </a>
+            .
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return <>{children}</>;
 };
@@ -75,6 +121,10 @@ const App = () => (
         {/* Favicon links */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        
+        {/* Security headers */}
+        <meta http-equiv="X-Frame-Options" content="DENY" />
+        <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none'" />
       </Helmet>
       <SecurityProvider>
         <TooltipProvider>

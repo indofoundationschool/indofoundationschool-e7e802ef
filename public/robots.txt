@@ -17,4 +17,6 @@ Disallow: /.htaccess
 Disallow: /config/
 Disallow: /includes/
 
+X-Robots-Tag: noarchive, noimageindex
+
 Sitemap: https://www.indofoundationschool.com/sitemap.xml
