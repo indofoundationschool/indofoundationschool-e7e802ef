@@ -84,13 +84,13 @@ const Gallery = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleImageUpload = (newImage: GalleryImage) => {
-    console.log("New image received:", newImage);
-    // Add new image to the images array
-    setImages(prevImages => [newImage, ...prevImages]);
-    // Show a success toast
-    toast.success('Image uploaded successfully!');
-  };
+  // const handleImageUpload = (newImage: GalleryImage) => {
+  //   console.log("New image received:", newImage);
+  //   // Add new image to the images array
+  //   setImages(prevImages => [newImage, ...prevImages]);
+  //   // Show a success toast
+  //   toast.success('Image uploaded successfully!');
+  // };
 
   // Extract unique categories from images
   const categories = ['all', ...Array.from(new Set(images.map(img => img.category)))];
@@ -147,7 +147,7 @@ const Gallery = () => {
               </TabsContent>
             </Tabs>
 
-            <UploadSection onImageUpload={handleImageUpload} />
+            {/* <UploadSection onImageUpload={handleImageUpload} /> */}
           </>
         )}
       </div>
