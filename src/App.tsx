@@ -12,6 +12,7 @@ import About from "./pages/About";
 import Academics from "./pages/Academics";
 import Enquire from "./pages/Enquire";
 import NotFound from "./pages/NotFound";
+import Gallery from "./pages/Gallery";
 
 // Create a new query client
 const queryClient = new QueryClient({
@@ -57,6 +58,7 @@ const App = () => (
             <Route path="/academics" element={<Academics />} />
             <Route path="/enquire" element={<Enquire />} />
             <Route path="/admin/*" element={<Navigate to="/" replace />} />
+             <Route path="/gallery" element={<Gallery />} /> 
             <Route path="/wp-admin/*" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -24,7 +24,7 @@ const Gallery = () => {
   const initialImages: GalleryImage[] = [
     {
       id: '1',
-      src: '/lovable-uploads/caefd431-3e9a-4b95-9c75-0c029111b4c7.png',
+      src: '/lovable-uploads/main_logo.jpg',
       alt: 'Academic Achievement Awards',
       category: 'academics',
       description: 'Students proudly displaying their academic achievement certificates with their teacher.'
@@ -66,7 +66,7 @@ const Gallery = () => {
     },
     {
       id: '7',
-      src: '/lovable-uploads/4d92c171-40e3-4364-b172-f16ddc40fb65.png',
+      src: '/lovable-uploads/smart_class',
       alt: 'School Error Image',
       category: 'school',
       description: 'Screenshot showing 404 error page from the school website.'
