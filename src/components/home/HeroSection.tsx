@@ -218,7 +218,7 @@ const HeroSection = () => {
                   <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-school-blue/60 rounded-br-lg"></div>
                   
                   <img 
-                    src="/lovable-uploads/cf0780d0-79ac-4bac-952b-c84c3c6d7141.png" 
+                    src="/lovable-uploads/main_building.png" 
                     alt="Indo Foundation School Building" 
                     className="w-full h-auto object-contain relative z-10"
                   />
