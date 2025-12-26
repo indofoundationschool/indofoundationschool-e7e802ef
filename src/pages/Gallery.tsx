@@ -31,42 +31,42 @@ const Gallery = () => {
     },
     {
       id: '2',
-      src: '/lovable-uploads/73bb71c5-ccf7-4f48-af95-da62530b6bc1.png',
+      src: '/lovable-uploads/sports_day_winner.png',
       alt: 'Sports Day Winners',
       category: 'sports',
       description: 'Winners of the annual sports competition with their trophies and medals.'
     },
     {
       id: '3',
-      src: '/lovable-uploads/764e3d8d-e8b6-4acb-ac3a-4782cff6076a.png',
+      src: '/lovable-uploads/sports_day.png',
       alt: 'Foundation Day Cultural Program',
       category: 'events',
       description: 'Students performing in traditional attire during the school foundation day celebrations.'
     },
     {
       id: '4',
-      src: '/lovable-uploads/d0665058-ed0f-4ffe-b8a0-3aa06fb48e3a.png',
+      src: '/lovable-uploads/foundation_day_cel.png',
       alt: '47th Foundation Day Celebration',
       category: 'events',
       description: 'Students in colorful traditional attire performing during the 47th Foundation Day celebrations.'
     },
     {
       id: '5',
-      src: '/lovable-uploads/IMG_4943.jpeg',
+      src: '/lovable-uploads/classroom.png',
       alt: 'School Assembly Session',
       category: 'school',
       description: 'Students gathered for the morning assembly session on the school grounds.'
     },
     {
       id: '6',
-      src: '/lovable-uploads/8d6715e0-c260-4542-8ab6-4d9eac1a4045.png',
+      src: '/lovable-uploads/quiz_comp.png',
       alt: 'Quiz Competition Participation',
       category: 'school',
       description: 'Students in uniforms sitting together before or after participating in a quiz or similar school competition.'
     },
     {
       id: '7',
-      src: '/lovable-uploads/smart_class',
+      src: '/lovable-uploads/smart_class.jpg',
       alt: 'School Error Image',
       category: 'school',
       description: 'Screenshot showing 404 error page from the school website.'
